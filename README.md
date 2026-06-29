@@ -1,2 +1,47 @@
-# codex-research-workspace
-Personal research workspace for Codex context, project plans, decision logs, and reproducible scripts.
+# Codex Research Workspace
+
+This repository stores project context, working plans, decision logs, reusable prompts, analysis scripts, writing rules, and templates for Codex-assisted research work.
+
+## Purpose
+
+The purpose of this repository is to make Codex usable across multiple computers by storing important project context in version-controlled files.
+
+Codex itself should not be treated as the only memory source. Instead, this repository acts as the persistent project memory.
+
+## Main folders
+
+- `docs/`: research background, writing rules, project briefs, and technical context.
+- `notes/`: decision logs, session summaries, and recurring Codex mistakes.
+- `scripts/`: reproducible scripts for data analysis, figure generation, and utilities.
+- `templates/`: reusable templates for emails, manuscripts, reports, presentations, and prompts.
+- `data/raw/`: original data files. Do not overwrite.
+- `data/processed/`: cleaned or processed data.
+- `outputs/`: generated figures, tables, reports, and presentations.
+- `archive/`: old or inactive materials.
+
+## Core files
+
+- `AGENTS.md`: operating instructions for Codex.
+- `PLANS.md`: current tasks, priorities, and next steps.
+- `notes/decision_logs/decision_log.md`: important decisions and rationale.
+- `notes/codex_mistakes/codex_mistakes.md`: recurring errors that should be avoided.
+- `templates/prompts/start_session_prompt.md`: prompt used at the beginning of a Codex session.
+- `templates/prompts/end_session_prompt.md`: prompt used at the end of a Codex session.
+
+## Basic workflow
+
+At the start of work on any computer:
+
+```bash
+git pull
+codex
+```
+
+At the end of a work session:
+
+```bash
+git status
+git add .
+git commit -m "Update research workspace"
+git push
+```
