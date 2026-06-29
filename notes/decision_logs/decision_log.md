@@ -38,3 +38,14 @@ A predictable layout makes it easier for Codex and the user to recover context, 
 
 Impact:
 Future work should update `PLANS.md`, decision logs, session summaries, and relevant templates instead of relying only on chat history.
+
+### 2026-06-29 - Token-efficient layered rule system
+
+**Decision:**
+The repository rule system was changed from a large single `AGENTS.md` into a layered structure: compact root `AGENTS.md`, detailed task-specific files under `docs/rules/`, and an optional global `~/.codex/AGENTS.md` template.
+
+**Reason:**
+A large always-read rule file increases fixed context usage. A compact index plus task-specific rule files allows Codex to load only the smallest necessary context.
+
+**Impact:**
+Future Codex sessions should begin by reading only `AGENTS.md`, `README.md`, and `PLANS.md`, then selectively load relevant rule files based on the task.

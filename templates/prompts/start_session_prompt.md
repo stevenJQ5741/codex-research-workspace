@@ -1,22 +1,22 @@
 # Start Session Prompt
 
-Use this prompt at the beginning of a Codex session.
+Use this at the beginning of a Codex session.
 
 ```text
-Please first read the following files:
+Please read only:
 
 - AGENTS.md
 - README.md
 - PLANS.md
-- notes/decision_logs/decision_log.md
-- notes/codex_mistakes/codex_mistakes.md
 
-Then summarize:
+Do not read all files under docs/rules/.
 
-1. The current purpose of this repository.
-2. The current active tasks.
-3. The most important rules you must follow.
-4. Any unresolved issues or risks.
+After reading the three files, summarize briefly:
 
-After that, wait for my next instruction before modifying files.
+1. repository purpose
+2. active tasks
+3. core rules
+4. which additional rule files are relevant to my next task
+
+Do not modify files yet. Wait for my instruction.
 ```

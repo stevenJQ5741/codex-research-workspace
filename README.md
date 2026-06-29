@@ -50,3 +50,48 @@ Push only after explicit approval:
 ```bash
 git push
 ```
+
+## Token-efficient rule system
+
+This repository uses a layered rule system to reduce unnecessary context usage.
+
+### Layer 1: Global rules
+
+Optional global rules can be installed at:
+
+```text
+~/.codex/AGENTS.md
+```
+
+A template is available at:
+
+```text
+templates/codex/global_AGENTS.md
+```
+
+### Layer 2: Repository rules
+
+The root `AGENTS.md` is a compact rule index.
+It should remain short and should not contain all project details.
+
+### Layer 3: Detailed rule files
+
+Detailed rules are stored in:
+
+```text
+docs/rules/
+```
+
+Codex should read only the rule files relevant to the current task.
+
+Examples:
+
+- DSC task: read `docs/rules/dsc_analysis_rules.md`
+- manuscript task: read `docs/rules/manuscript_writing_rules.md`
+- Japanese email task: read `docs/rules/japanese_email_rules.md`
+- presentation task: read `docs/rules/presentation_rules.md`
+
+### Principle
+
+Do not load the whole knowledge base by default.
+Load only the smallest context needed for the current task.

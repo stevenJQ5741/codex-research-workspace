@@ -10,12 +10,32 @@ Build a cross-computer Codex workflow using GitHub as the persistent project mem
 
 The repository has been initialized as a general research workspace. Important context should be written into version-controlled files instead of being left only in temporary chat history.
 
+## Current workflow policy
+
+The repository now uses a token-efficient layered rule system.
+
+Default session start:
+
+1. Read `AGENTS.md`.
+2. Read `README.md`.
+3. Read `PLANS.md`.
+4. Select only relevant files from `docs/rules/`.
+5. Do not read all rule files by default.
+
+Default session end:
+
+1. Summarize modified files.
+2. Record durable decisions only.
+3. Update `PLANS.md` only when task status changes.
+4. Keep summaries short.
+
 ### Immediate Tasks
 
 - [x] Initialize research workspace directory structure.
 - [x] Create core instruction and planning files.
 - [x] Add reusable prompts for starting and ending Codex sessions.
 - [x] Add templates for Japanese emails and academic manuscript writing.
+- [x] Refactor rules into a token-efficient layered system.
 - [ ] Test the workflow on another computer using `git clone`, `git pull`, and Codex.
 - [ ] Add project-specific research briefs as new projects begin.
 - [ ] Add data-analysis scripts when experimental datasets are available.
