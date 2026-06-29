@@ -4,19 +4,20 @@
 
 YYYY-MM-DD
 
-## Session Goal
+## Task
 
-- 
+Describe the main task of this session.
 
 ## Files Modified
 
+- File 1:
+- File 2:
+
+## Main Changes
+
 - 
 
-## Key Decisions
-
-- 
-
-## Work Completed
+## Decisions Made
 
 - 
 
@@ -25,9 +26,5 @@ YYYY-MM-DD
 - 
 
 ## Next Session Start Point
-
-- 
-
-## Notes for Codex
 
 - 

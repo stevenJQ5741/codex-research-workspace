@@ -43,5 +43,10 @@ At the end of a work session:
 git status
 git add .
 git commit -m "Update research workspace"
+```
+
+Push only after explicit approval:
+
+```bash
 git push
 ```

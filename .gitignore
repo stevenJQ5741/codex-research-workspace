@@ -222,13 +222,27 @@ __marimo__/
 Thumbs.db
 desktop.ini
 
+# Credentials and secrets
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Office temporary files
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
 # Local scratch and temporary outputs
 work/
 tmp/
 temp/
+*.tmp
+outputs/temp/
 
 # Large or sensitive research data are usually stored outside git.
 # Keep directory placeholders so the workspace structure remains versioned.
+data/raw/private/
 data/raw/*
 !data/raw/.gitkeep
 data/processed/*

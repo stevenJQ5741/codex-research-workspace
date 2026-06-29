@@ -11,6 +11,8 @@ You are assisting Quan Jiang with academic research, experimental analysis, manu
 - Preserve the user's intended logic unless explicitly asked to restructure.
 - When uncertainty exists, state it directly.
 - Prefer reproducible workflows over one-time manual outputs.
+- Important context should be written into files. Do not rely only on temporary chat history.
+- Do not delete existing files without explicit confirmation.
 
 ## Language policy
 
@@ -88,6 +90,8 @@ At the end of a session:
 4. Update `PLANS.md` when the task state changes.
 5. Update `notes/decision_logs/decision_log.md` when a meaningful decision is made.
 6. Update `notes/codex_mistakes/codex_mistakes.md` if a recurring mistake is found.
+7. Add a dated session summary under `notes/session_summaries/` when the session changes repository context.
+8. Do not push to GitHub until the user explicitly approves.
 
 ## Output style
 

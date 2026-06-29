@@ -1,15 +1,20 @@
 # End Session Prompt
 
-Use this prompt at the end of a Codex session:
+Use this prompt at the end of a Codex session.
 
 ```text
-Please close this research workspace session.
+Please summarize this session and update the repository context.
 
-1. Summarize modified files.
-2. Summarize key decisions.
-3. Record unresolved issues.
-4. Update PLANS.md if the task state changed.
-5. Update notes/decision_logs/decision_log.md if a meaningful decision was made.
-6. Update notes/codex_mistakes/codex_mistakes.md if a recurring mistake was found.
-7. Suggest a concise git commit message.
+Required actions:
+
+1. List all files modified in this session.
+2. Summarize the main changes.
+3. Summarize any decisions made.
+4. Summarize unresolved issues.
+5. Update PLANS.md if the task state changed.
+6. Add a new entry to notes/decision_logs/decision_log.md if important decisions were made.
+7. Add a new session summary under notes/session_summaries/ using the format YYYY-MM-DD-session-summary.md.
+8. If you made or noticed a recurring mistake, update notes/codex_mistakes/codex_mistakes.md.
+9. Run git status and show me the result.
+10. Do not push until I explicitly approve.
 ```
