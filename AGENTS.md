@@ -1,4 +1,4 @@
-# AGENTS.md
+﻿# AGENTS.md
 
 ## Purpose
 
@@ -99,6 +99,33 @@ Read the following detailed rule files only when relevant.
 | Project-specific background | `docs/rules/current_research_context.md` |
 
 Read `docs/rules/current_research_context.md` only when project background is needed.
+
+## Skills map
+
+Reusable workflows live under `skills/`.
+
+Do not load all skills by default.
+
+Use the router when unsure:
+
+- `skills/router/ask-jiang/SKILL.md`
+
+Task-specific skills:
+
+| Task | Skill |
+| --- | --- |
+| clarify a complex research task | `skills/research/research-grill/SKILL.md` |
+| update shared terminology | `skills/research/shared-language/SKILL.md` |
+| reproducible data analysis | `skills/research/analysis-feedback-loop/SKILL.md` |
+| manuscript review or revision | `skills/research/manuscript-review/SKILL.md` |
+| DSC analysis | `skills/research/dsc-analysis/SKILL.md` |
+| heat-transfer or ILSS reheating analysis | `skills/research/heat-transfer-analysis/SKILL.md` |
+| presentation review | `skills/research/presentation-review/SKILL.md` |
+| Japanese email | `skills/research/japanese-email/SKILL.md` |
+| cross-session handoff | `skills/research/handoff/SKILL.md` |
+
+Skills are workflows.
+Detailed scientific rules remain in `docs/rules/`.
 
 ## Session workflow
 

@@ -1,4 +1,4 @@
-# Codex Research Workspace
+﻿# Codex Research Workspace
 
 This repository stores project context, working plans, decision logs, reusable prompts, analysis scripts, writing rules, and templates for Codex-assisted research work.
 
@@ -90,6 +90,41 @@ Examples:
 - manuscript task: read `docs/rules/manuscript_writing_rules.md`
 - Japanese email task: read `docs/rules/japanese_email_rules.md`
 - presentation task: read `docs/rules/presentation_rules.md`
+
+## Research skills system
+
+This repository includes a research-oriented skills system under:
+
+```text
+skills/
+```
+
+The skills are designed to provide repeatable workflows for common research tasks while keeping token usage controlled.
+
+### Design principles
+
+- Most skills are user-invoked to avoid unnecessary context load.
+- `ask-jiang` acts as a router skill.
+- Detailed rules remain in `docs/rules/`.
+- Shared terminology lives in `docs/shared_language/CONTEXT.md`.
+- Hard-to-reverse decisions live in `docs/adr/`.
+- Each skill has a completion criterion.
+- Major workflows should include a feedback loop.
+
+### Common skills
+
+| Task | Skill |
+| --- | --- |
+| choose the right workflow | `skills/router/ask-jiang/SKILL.md` |
+| clarify research plans | `skills/research/research-grill/SKILL.md` |
+| maintain shared language | `skills/research/shared-language/SKILL.md` |
+| reproducible analysis | `skills/research/analysis-feedback-loop/SKILL.md` |
+| review manuscript text | `skills/research/manuscript-review/SKILL.md` |
+| analyze DSC data | `skills/research/dsc-analysis/SKILL.md` |
+| analyze reheating or heat transfer | `skills/research/heat-transfer-analysis/SKILL.md` |
+| review presentations | `skills/research/presentation-review/SKILL.md` |
+| draft Japanese emails | `skills/research/japanese-email/SKILL.md` |
+| create handoff summaries | `skills/research/handoff/SKILL.md` |
 
 ### Principle
 

@@ -1,4 +1,4 @@
-# PLANS.md
+﻿# PLANS.md
 
 ## Current Plans
 
@@ -28,6 +28,25 @@ Default session end:
 2. Record durable decisions only.
 3. Update `PLANS.md` only when task status changes.
 4. Keep summaries short.
+
+## Current skills policy
+
+The repository now includes a research-oriented skills system.
+
+Default behavior:
+
+1. Do not load all skills by default.
+2. Use `skills/router/ask-jiang/SKILL.md` when unsure which workflow fits.
+3. Use task-specific skills only when relevant.
+4. Keep scientific rules in `docs/rules/`.
+5. Keep shared terms in `docs/shared_language/CONTEXT.md`.
+6. Keep hard-to-reverse decisions in `docs/adr/`.
+
+Immediate next tasks:
+
+- [ ] Test `ask-jiang` on a real task.
+- [ ] Test `research-grill` before the next complex manuscript or experiment task.
+- [ ] Add project-specific shared language entries as future projects require.
 
 ### Immediate Tasks
 

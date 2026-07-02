@@ -1,4 +1,4 @@
-# Decision Log
+﻿# Decision Log
 
 This file records important project decisions and the reasoning behind them.
 
@@ -49,3 +49,14 @@ A large always-read rule file increases fixed context usage. A compact index plu
 
 **Impact:**
 Future Codex sessions should begin by reading only `AGENTS.md`, `README.md`, and `PLANS.md`, then selectively load relevant rule files based on the task.
+
+## 2026-07-02 - Research skills system
+
+Decision:
+Add a research-oriented skills system under `skills/`, using mostly user-invoked skills to reduce context load.
+
+Reason:
+The repository already has layered rules, but recurring tasks such as manuscript review, DSC analysis, Japanese emails, presentation review, and handoff need repeatable workflows with clear completion criteria.
+
+Impact:
+Future Codex sessions should use `skills/router/ask-jiang/SKILL.md` to select the smallest relevant workflow, then load only the necessary skill and rule files.
