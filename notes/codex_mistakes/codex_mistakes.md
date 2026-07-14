@@ -30,3 +30,11 @@ Do not write: "The material melted at 220°C."
 
 Prefer:
 "The DSC curve suggests broad endothermic behavior around 200-220°C, which may correspond to high softening or partial melting."
+
+## Assuming Repository Skills Are Automatically Installed
+
+Problem:
+Keeping SKILL.md files in a Git repository does not by itself make them discoverable in every Codex task.
+
+Correction:
+Treat the repository as the source of truth, run scripts/install_skills.ps1 after clone or pull, and restart Codex. Never overwrite an unmarked personal Skill during installation.

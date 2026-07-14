@@ -1,0 +1,7 @@
+interface:
+  display_name: "Shared Language"
+  short_description: "Control terminology across analyses, figures, and drafts"
+  default_prompt: "Use $shared-language to resolve project terminology."
+
+policy:
+  allow_implicit_invocation: true

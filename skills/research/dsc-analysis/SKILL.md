@@ -1,77 +1,35 @@
-﻿---
+---
 name: dsc-analysis
-description: DSC analysis workflow for baseline correction, thermal-transition interpretation, and cautious manuscript wording.
-disable-model-invocation: true
+description: Analyze DSC data with explicit cycle selection, baseline and smoothing assumptions, transition tables, cautious thermal interpretation, and manuscript-ready wording. Use automatically for DSC curves, Tg, Tc, Tm, crystallization, broad endotherms, softening, or partial-melting discussion.
 ---
 
 # DSC Analysis
 
-## Purpose
-
-Analyze DSC data and interpret thermal transitions cautiously.
-
 ## Required rules
 
-Read:
-
-- `docs/rules/dsc_analysis_rules.md`
-- `docs/rules/data_management_rules.md`
-
-Read `docs/rules/current_research_context.md` only if project background is needed.
+Read docs/rules/dsc_analysis_rules.md and docs/rules/data_management_rules.md. Read current research context only when project background is needed.
 
 ## Process
 
 ### 1. Identify input
 
-Confirm:
+Confirm sample name, heating and cooling cycle, rates, atmosphere, sample mass, temperature range, heat-flow direction, and raw data file.
 
-- sample name
-- heating/cooling cycle
-- heating rate
-- cooling rate
-- atmosphere
-- sample mass
-- temperature range
-- heat-flow direction
-- raw data file
+### 2. Define preprocessing
 
-### 2. Preprocessing plan
-
-State:
-
-- baseline range
-- smoothing method if used
-- normalization method if used
-- whether first heating, cooling, and second heating are analyzed separately
+State baseline range, smoothing, normalization, and whether first heating, cooling, and second heating are analyzed separately.
 
 ### 3. Analyze
 
-Generate:
+Generate cleaned data if needed, a plot, a transition table, and a cautious interpretation.
 
-- cleaned data if needed
-- plot
-- transition table
-- cautious interpretation
+### 4. Interpret cautiously
 
-### 4. Interpretation rules
+Do not claim a sharp melting point unless the signal supports it. Prefer broad endothermic behavior, high-softening range, partial-melting range, or weak melting-related signal when appropriate.
 
-Do not claim a sharp melting point unless clear.
+### 5. Save outputs
 
-Use cautious language such as:
-
-- broad endothermic behavior
-- high-softening temperature range
-- partial-melting temperature range
-- weak melting-related signal
-
-### 5. Output
-
-Save:
-
-- script
-- figure
-- processed data if generated
-- short report if useful
+Save the script, figure, processed data when generated, and a short report when useful.
 
 ## Completion criterion
 
@@ -79,6 +37,7 @@ This skill is complete when:
 
 1. input file and cycle are identified
 2. baseline and smoothing assumptions are stated
-3. figure and table are generated if data are available
+3. figure and table are generated when data are available
 4. thermal interpretation is cautious
-5. manuscript wording is safe if requested
+5. manuscript wording is safe when requested
+6. the response includes a Skill usage receipt

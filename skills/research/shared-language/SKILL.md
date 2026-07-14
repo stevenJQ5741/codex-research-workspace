@@ -1,79 +1,38 @@
-﻿---
+---
 name: shared-language
-description: Build or refine shared research terminology, glossary entries, and durable project language.
-disable-model-invocation: true
+description: Control durable research terminology, symbols, units, sign conventions, and evidence labels across calculations, figures, manuscripts, and sessions. Use automatically when terms are overloaded, translations drift, symbols conflict, or concepts differ across artifacts.
 ---
 
 # Shared Language
 
-## Purpose
-
-Maintain concise, stable terminology between the user and Codex.
-
-Use this when:
-
-- a term is ambiguous
-- a term is repeatedly used
-- two terms are being confused
-- a project needs a controlled vocabulary
-- a manuscript or slide deck needs consistent language
-
-## Required files
-
-Read:
-
-- `docs/shared_language/CONTEXT.md`
-
-Read relevant rule files only if needed.
-
 ## Process
 
-### 1. Detect candidate terms
+### 1. Detect consequential drift
 
-Look for:
+Find terms or symbols whose ambiguity changes calculation, interpretation, or wording. Ignore harmless temporary phrasing.
 
-- repeated phrases
-- overloaded terms
-- terms with multiple possible meanings
-- terms that affect interpretation
-- terms that should become canonical
+### 2. Resolve from evidence
 
-### 2. Challenge ambiguous language
+Check equations, source documents, scripts, figure labels, and manuscript usage. Ask only when evidence cannot resolve the meaning.
 
-If a term is unclear, ask:
+### 3. Define the canonical entry
 
-```text
-You used X. Do you mean A or B? These have different implications.
-```
+Record canonical term, definition, symbol, unit, sign convention, evidence class, preferred English or Japanese wording, avoid terms, and unresolved caveats as applicable.
 
-### 3. Propose canonical wording
+### 4. Propagate the decision
 
-For each important term, propose:
+Identify affected scripts, tables, figures, captions, and manuscript passages. Do not update the glossary while leaving contradictory active artifacts unnoticed.
 
-- canonical term
-- short definition
-- avoid terms
-- usage note if needed
+### 5. Persist durable language
 
-### 4. Update CONTEXT.md
-
-Update `docs/shared_language/CONTEXT.md` only when the term is durable.
-
-Do not add temporary scratch notes.
-
-### 5. Consider ADR
-
-Offer an ADR only when the decision is:
-
-1. hard to reverse
-2. surprising without context
-3. based on a real trade-off
+Update docs/shared_language/CONTEXT.md only for recurring language. Use an ADR when changing a hard-to-reverse convention.
 
 ## Completion criterion
 
 This skill is complete when:
 
-1. ambiguous terms are resolved or marked unresolved
-2. canonical terms are proposed
-3. durable terms are added to `CONTEXT.md`
-4. any necessary ADR is suggested or created
+1. consequential ambiguity is resolved or marked unresolved
+2. canonical wording, symbols, units, and signs are explicit
+3. affected artifacts are identified and checked
+4. durable entries are recorded without duplicating background
+5. the response includes a Skill usage receipt

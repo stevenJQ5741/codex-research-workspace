@@ -1,0 +1,7 @@
+interface:
+  display_name: "Heat Transfer Analysis"
+  short_description: "Analyze reheating models and thermal interpretation"
+  default_prompt: "Use $heat-transfer-analysis to analyze this thermal problem."
+
+policy:
+  allow_implicit_invocation: true

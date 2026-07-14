@@ -1,0 +1,7 @@
+interface:
+  display_name: "Analysis Feedback Loop"
+  short_description: "Run reproducible analysis with staged validation gates"
+  default_prompt: "Use $analysis-feedback-loop to analyze these data reproducibly."
+
+policy:
+  allow_implicit_invocation: true

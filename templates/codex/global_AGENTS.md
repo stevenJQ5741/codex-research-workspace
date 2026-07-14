@@ -20,3 +20,7 @@ Do not include project-specific research details here.
 - Prefer reproducible workflows over one-time manual edits.
 - Before major changes, inspect relevant files and summarize the plan.
 - After major changes, summarize modified files, key decisions, unresolved issues, and next steps.
+- Select relevant installed Skills automatically.
+- Use at most one primary and two supporting Skills.
+- Ask once when the workflow is ambiguous, method-sensitive, expensive, or materially expands scope.
+- At the end of every final response, report which Skills materially affected the work; state explicitly when no task-specific Skill was used.

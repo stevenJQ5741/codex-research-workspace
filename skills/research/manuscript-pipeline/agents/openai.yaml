@@ -1,0 +1,7 @@
+interface:
+  display_name: "Manuscript Pipeline"
+  short_description: "Drive evidence from sources to a verified manuscript"
+  default_prompt: "Use $manuscript-pipeline to run this paper from evidence to final QA."
+
+policy:
+  allow_implicit_invocation: true

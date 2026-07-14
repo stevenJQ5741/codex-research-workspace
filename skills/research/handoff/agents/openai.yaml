@@ -1,0 +1,7 @@
+interface:
+  display_name: "Handoff"
+  short_description: "Create evidence-linked research continuation records"
+  default_prompt: "Use $handoff to prepare the next research session."
+
+policy:
+  allow_implicit_invocation: true

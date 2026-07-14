@@ -1,0 +1,7 @@
+interface:
+  display_name: "Manuscript Review"
+  short_description: "Audit manuscript evidence, logic, language, and readiness"
+  default_prompt: "Use $manuscript-review to review this manuscript section."
+
+policy:
+  allow_implicit_invocation: true

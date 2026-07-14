@@ -1,120 +1,111 @@
-﻿# Skill Design Rules
+# Skill Design Rules
 
 ## Purpose
 
-These rules define how to write and maintain research skills for this repository.
-
-A skill should make Codex follow a predictable process, not produce identical output every time.
+Define how to create, invoke, validate, install, and maintain research Skills in this repository.
 
 ## Core principles
 
-1. Prefer predictable process over long instruction blocks.
-2. Use skills for workflows, not for storing all background knowledge.
-3. Keep root `AGENTS.md` short.
-4. Put detailed reusable rules in `docs/rules/`.
-5. Put project terminology in `docs/shared_language/`.
-6. Put hard-to-reverse decisions in `docs/adr/`.
-7. Prefer user-invoked skills unless automatic invocation is clearly worth the context cost.
-8. Each skill must have a clear completion criterion.
-9. Do not duplicate the same rule in many files.
-10. Use the smallest context needed for the task.
+1. Use Skills for repeatable workflows, not background storage.
+2. Keep root AGENTS.md compact and index-like.
+3. Keep detailed scientific rules in docs/rules/.
+4. Keep durable terminology in docs/shared_language/.
+5. Keep hard-to-reverse decisions in docs/adr/.
+6. Load only the smallest context needed.
+7. Give every Skill a checkable Completion criterion.
+8. Prefer one primary and no more than two supporting Skills.
+9. Report actual Skill use at the end of every task.
+10. Remove duplicated, stale, or no-op instructions.
 
-## User-invoked skills
+## Skill structure
 
-User-invoked skills are called manually by the user.
+Each Skill must contain:
 
-Use them when:
+- SKILL.md with name and description frontmatter only
+- a concise workflow body
+- an explicit Completion criterion
+- agents/openai.yaml with interface metadata and invocation policy
 
-- human judgement is required
-- the skill is not needed every session
-- the skill would create unnecessary context load if always visible
-- the workflow is specialized
+Descriptions must state both what the Skill does and the concrete situations that trigger it.
 
-For user-invoked skills, include this in frontmatter:
+## Automatic invocation
+
+All canonical Skills use:
 
 ```yaml
-disable-model-invocation: true
+policy:
+  allow_implicit_invocation: true
 ```
 
-## Model-invoked skills
+Automatic discovery does not grant extra authority. File deletion, sensitive-data handling, external messages, commits, pushes, and other consequential actions still follow user authorization and platform approval rules.
 
-Model-invoked skills may be triggered automatically by the agent.
+## Invocation gate
 
-Use them only when:
+Proceed automatically when:
 
-- the agent must reach the skill without the user remembering it
-- the trigger is frequent and clear
-- the description is short
-- the permanent context cost is justified
+- the task-to-Skill match is clear
+- the requested action already authorizes the work
+- the Skill does not materially expand scope
 
-In this repository, most skills should remain user-invoked.
+Ask once before execution when:
 
-## Router skill
+- two or more primary workflows compete
+- a methodological choice can change the scientific result
+- required assumptions are unresolved
+- the workflow adds substantial cost or context
+- the proposed work materially expands the request
 
-When user-invoked skills become too many to remember, create one router skill.
+Use ask-jiang to resolve ambiguous or multi-workflow tasks.
 
-The router does not execute the task.
-It recommends which skill to invoke and which rule files to read.
+## Context hierarchy
 
-For this repository, the router is:
+Use this order:
 
-```text
-skills/router/ask-jiang/SKILL.md
-```
+1. Skill workflow: actions required now.
+2. Short in-Skill rules: required every run.
+3. External rules or references: load only when relevant.
 
-## Information hierarchy
-
-Use this hierarchy:
-
-1. Skill steps: what Codex must do now.
-2. In-skill reference: short rules needed every time the skill runs.
-3. External reference: detailed rules loaded only when needed.
-
-Do not put large research background directly in `SKILL.md`.
+Do not duplicate long scientific background inside SKILL.md.
 
 ## Completion criterion
 
-Every skill must define how Codex knows the workflow is complete.
+Completion criteria must be observable, task-specific, and resistant to premature completion. Major workflows should check inputs, assumptions, output generation, self-review, correction, final verification, and unresolved risks.
 
-Good completion criteria are:
+## Skill usage receipt
 
-- observable
-- checkable
-- task-specific
-- resistant to premature completion
+Every final response must disclose:
 
-## Feedback loop
+1. primary Skill
+2. supporting Skills
+3. reporting Skill
+4. an evidence-based revision signal, or none
 
-Every major workflow should include:
+List only Skills that materially affected routing, actions, validation, or output.
 
-1. input check
-2. assumption check
-3. first output
-4. self-review
-5. correction
-6. final output
-7. memory update if durable
+## Installation
 
-## Shared language
+The canonical source is the repository skills/ directory.
 
-When a term becomes important, record it in:
+Run scripts/install_skills.ps1 after cloning or pulling on each computer. Installed copies are disposable and may be replaced only when they contain the repository management marker.
 
-```text
-docs/shared_language/CONTEXT.md
-```
+Restart Codex after installation so the catalog is refreshed.
 
-When a decision is hard to reverse, surprising, or trade-off based, record it in:
+## Validation
 
-```text
-docs/adr/
-```
+Before commit:
+
+1. run the Skill validator on every SKILL.md
+2. parse every agents/openai.yaml
+3. check all Completion criterion headings
+4. scan for TODO placeholders
+5. run git diff --check
 
 ## Pruning
 
-Remove or avoid:
+Delete or consolidate:
 
+- parallel version trees after approval
 - duplicated rules
-- stale background
-- generic advice
-- no-op instructions
-- long explanations that do not change Codex behavior
+- stale pilot language
+- generic advice that does not change behavior
+- obsolete paths or invocation metadata

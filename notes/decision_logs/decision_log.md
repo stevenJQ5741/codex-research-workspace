@@ -60,3 +60,25 @@ The repository already has layered rules, but recurring tasks such as manuscript
 
 Impact:
 Future Codex sessions should use `skills/router/ask-jiang/SKILL.md` to select the smallest relevant workflow, then load only the necessary skill and rule files.
+
+## 2026-07-14 - Parallel V2 Skill pilot
+
+Decision:
+Create V2 Skill drafts under `skills_v2/` without replacing V1, and add a compact Skill usage receipt to final responses.
+
+Reason:
+The PLA/CF manuscript showed that isolated analysis and manuscript review Skills did not fully cover evidence provenance, full-paper dependency order, cross-artifact consistency, rendered QA, or observable Skill usage frequency.
+
+Impact:
+V2 behavior can be compared safely against V1. Future replacement or merging decisions require real-task evidence and explicit user approval.
+
+## 2026-07-14 - Integrate Skills and enable governed automatic invocation
+
+Decision:
+Merge the approved V2 workflows into the canonical `skills/` tree, remove `skills_v2/`, enable implicit discovery for all Skills, and add a confirmation gate plus cross-computer installer.
+
+Reason:
+The comparison established useful improvements, while parallel versions created duplicate instructions. Repository files also require installation before Codex can discover them automatically.
+
+Impact:
+The repository now has one Skill source of truth. Clear matches run automatically; ambiguous, method-sensitive, expensive, or scope-expanding workflows ask once. Final responses report actual Skill use.

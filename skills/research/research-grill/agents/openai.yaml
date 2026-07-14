@@ -1,0 +1,7 @@
+interface:
+  display_name: "Research Grill"
+  short_description: "Clarify research tasks using evidence-first questions"
+  default_prompt: "Use $research-grill to clarify this research task."
+
+policy:
+  allow_implicit_invocation: true

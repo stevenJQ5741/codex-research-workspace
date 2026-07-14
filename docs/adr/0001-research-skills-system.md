@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted
+Accepted. The original user-invoked policy is superseded by ADR 0002.
 
 ## Context
 
@@ -23,7 +23,7 @@ Create a research-oriented skills system under:
 skills/
 ```
 
-Most skills will be user-invoked to avoid unnecessary context load.
+At adoption time, most skills were user-invoked to avoid unnecessary context load. ADR 0002 later superseded this invocation policy.
 
 A router skill, `ask-jiang`, will help choose the correct workflow.
 

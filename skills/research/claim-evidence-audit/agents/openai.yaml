@@ -1,0 +1,7 @@
+interface:
+  display_name: "Claim Evidence Audit"
+  short_description: "Trace manuscript claims to data, models, and literature"
+  default_prompt: "Use $claim-evidence-audit to audit claims in this manuscript."
+
+policy:
+  allow_implicit_invocation: true
