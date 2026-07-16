@@ -31,7 +31,9 @@ Choose one primary skill and at most two supporting skills:
 | heat-transfer or reheating analysis | heat-transfer-analysis |
 | presentation review | presentation-review |
 | Japanese email | japanese-email |
-| DOCX, PDF, figure, or table verification | artifact-qa |
+| research profile, brief CV, or research-summary editing | research-brief-editor |
+| final native DOCX/PPTX-to-PDF release on Windows | office-native-release |
+| general DOCX, PDF, spreadsheet, figure, or table verification | artifact-qa |
 | cross-session continuation | handoff |
 | skill-use disclosure | skill-usage-report |
 

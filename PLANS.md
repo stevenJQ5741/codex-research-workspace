@@ -60,6 +60,8 @@ Current status:
 - [x] Add implicit-invocation metadata and a confirmation gate.
 - [x] Add explicit completion criteria to every Skill.
 - [x] Add a cross-computer installer.
+- [x] Add separate research-brief editing and native Office release Skills.
+- [x] Validate Word/PDF and PowerPoint/PDF release paths on the primary Windows workstation.
 - [ ] Evaluate invocation precision and revise descriptions from real usage evidence.
 
 ### Immediate Tasks
@@ -72,6 +74,7 @@ Current status:
 - [ ] Test the workflow on another computer using `git clone`, `git pull`, and Codex.
 - [ ] Add project-specific research briefs as new projects begin.
 - [ ] Add data-analysis scripts when experimental datasets are available.
+- [ ] Recheck Office preflight and native release smoke tests after Office, Windows, or Codex runtime updates.
 
 ### Standard Workflow
 

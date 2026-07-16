@@ -82,3 +82,14 @@ The comparison established useful improvements, while parallel versions created 
 
 Impact:
 The repository now has one Skill source of truth. Clear matches run automatically; ambiguous, method-sensitive, expensive, or scope-expanding workflows ask once. Final responses report actual Skill use.
+
+## 2026-07-16 - Separate research-brief editing from native Office release
+
+Decision:
+Promote the validated project pilot into two canonical Skills: `research-brief-editor` for evidence-led editorial work and `office-native-release` for native Word/PowerPoint export plus Office/PDF pair QA. Keep general artifact verification in `artifact-qa` and remove parallel version naming.
+
+Reason:
+The split reduces irrelevant release instructions during editorial work and makes the device-specific Office release gate reusable. Native Office smoke tests preserved critical glyphs and completed structural and full-size visual checks, while LibreOffice has been unreliable on the primary workstation.
+
+Impact:
+Future computers install the same two Skills from this repository. Final DOCX/PPTX releases on Windows use Microsoft Office as the authoritative renderer, structural and semantic pair QA as Layer A, and Poppler rendering plus full-size visual inspection as Layer B. Real usage feedback should revise the canonical Skills directly instead of creating another parallel version tree.

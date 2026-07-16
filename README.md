@@ -130,6 +130,8 @@ The skills are designed to provide repeatable workflows for common research task
 | analyze reheating or heat transfer | `skills/research/heat-transfer-analysis/SKILL.md` |
 | review presentations | `skills/research/presentation-review/SKILL.md` |
 | draft Japanese emails | `skills/research/japanese-email/SKILL.md` |
+| edit a research profile, brief CV, or research summary | `skills/research/research-brief-editor/SKILL.md` |
+| release a DOCX/PPTX and PDF pair through native Office | `skills/research/office-native-release/SKILL.md` |
 | verify research artifacts | `skills/research/artifact-qa/SKILL.md` |
 | create handoff summaries | `skills/research/handoff/SKILL.md` |
 | report Skill use | `skills/governance/skill-usage-report/SKILL.md` |

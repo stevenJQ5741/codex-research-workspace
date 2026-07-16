@@ -1,0 +1,7 @@
+interface:
+  display_name: "Office Native Release"
+  short_description: "Export and verify DOCX or PPTX releases natively"
+  default_prompt: "Use $office-native-release to export and verify this Office artifact and its PDF."
+
+policy:
+  allow_implicit_invocation: true

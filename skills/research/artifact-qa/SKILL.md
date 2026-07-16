@@ -1,6 +1,6 @@
 ---
 name: artifact-qa
-description: Verify research figures, tables, spreadsheets, DOCX, and PDF artifacts structurally, numerically, and visually before release. Use automatically after generating or revising files when rendering, pagination, labels, image quality, numbering, formulas, or cross-file consistency can fail.
+description: Verify research figures, tables, spreadsheets, DOCX, and PDF artifacts structurally, numerically, and visually before release. Use automatically after generating or revising files when rendering, pagination, labels, image quality, numbering, formulas, or cross-file consistency can fail. For final native Word/PowerPoint-to-PDF pair release on Windows, use office-native-release instead.
 ---
 
 # Artifact QA
@@ -22,6 +22,8 @@ Compare displayed values, units, signs, axis data, captions, and formulas with a
 ### 4. Render and inspect
 
 Render DOCX or PDF pages and inspect all pages or a justified representative set. Check clipping, overlap, blank pages, font substitution, image resolution, caption placement, table overflow, and page balance.
+
+For final Windows-native DOCX/PPTX-to-PDF pair release, hand off to `office-native-release` rather than duplicating native export, pair consistency, and glyph-survival checks.
 
 ### 5. Inspect figure communication
 

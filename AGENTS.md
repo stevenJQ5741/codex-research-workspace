@@ -123,6 +123,8 @@ Task-specific skills:
 | heat-transfer or ILSS reheating analysis | `skills/research/heat-transfer-analysis/SKILL.md` |
 | presentation review | `skills/research/presentation-review/SKILL.md` |
 | Japanese email | `skills/research/japanese-email/SKILL.md` |
+| research profile, brief CV, or research summary | `skills/research/research-brief-editor/SKILL.md` |
+| native DOCX/PPTX-to-PDF release on Windows | `skills/research/office-native-release/SKILL.md` |
 | artifact verification | `skills/research/artifact-qa/SKILL.md` |
 | cross-session handoff | `skills/research/handoff/SKILL.md` |
 | final Skill receipt | `skills/governance/skill-usage-report/SKILL.md` |
