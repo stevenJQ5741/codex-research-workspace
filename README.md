@@ -34,6 +34,7 @@ At the start of work on any computer:
 
 ```bash
 git pull
+powershell -ExecutionPolicy Bypass -File scripts/install_skills.ps1
 codex
 ```
 
@@ -103,13 +104,16 @@ The skills are designed to provide repeatable workflows for common research task
 
 ### Design principles
 
-- Most skills are user-invoked to avoid unnecessary context load.
-- `ask-jiang` acts as a router skill.
+- Installed skills may be selected automatically from concise metadata.
+- `ask-jiang` routes ambiguous or multi-workflow tasks.
+- Use at most one primary and two supporting skills.
+- Ask once before method-sensitive or scope-expanding workflows.
 - Detailed rules remain in `docs/rules/`.
 - Shared terminology lives in `docs/shared_language/CONTEXT.md`.
 - Hard-to-reverse decisions live in `docs/adr/`.
 - Each skill has a completion criterion.
 - Major workflows should include a feedback loop.
+- Every final response includes a Skill usage receipt.
 
 ### Common skills
 
@@ -120,13 +124,29 @@ The skills are designed to provide repeatable workflows for common research task
 | maintain shared language | `skills/research/shared-language/SKILL.md` |
 | reproducible analysis | `skills/research/analysis-feedback-loop/SKILL.md` |
 | review manuscript text | `skills/research/manuscript-review/SKILL.md` |
+| produce a full manuscript | `skills/research/manuscript-pipeline/SKILL.md` |
+| audit scientific claims | `skills/research/claim-evidence-audit/SKILL.md` |
 | analyze DSC data | `skills/research/dsc-analysis/SKILL.md` |
 | analyze reheating or heat transfer | `skills/research/heat-transfer-analysis/SKILL.md` |
 | review presentations | `skills/research/presentation-review/SKILL.md` |
 | draft Japanese emails | `skills/research/japanese-email/SKILL.md` |
+| edit a research profile, brief CV, or research summary | `skills/research/research-brief-editor/SKILL.md` |
+| release a DOCX/PPTX and PDF pair through native Office | `skills/research/office-native-release/SKILL.md` |
+| verify research artifacts | `skills/research/artifact-qa/SKILL.md` |
 | create handoff summaries | `skills/research/handoff/SKILL.md` |
+| report Skill use | `skills/governance/skill-usage-report/SKILL.md` |
 
 ### Principle
 
 Do not load the whole knowledge base by default.
 Load only the smallest context needed for the current task.
+
+## Install or update Skills
+
+The repository is the source of truth. Install managed copies into the local Codex directory:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/install_skills.ps1
+```
+
+Run the command after `git pull`, then restart Codex so the updated skill catalog is discovered. The installer replaces only copies marked as managed by this repository.

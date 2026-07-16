@@ -1,63 +1,31 @@
-﻿---
+---
 name: japanese-email
-description: Concise and polite Japanese email workflow for professors, companies, university staff, and collaborators.
-disable-model-invocation: true
+description: Draft or revise concise, natural, and appropriately polite Japanese emails. Use automatically for messages to professors, companies, university staff, collaborators, or students involving requests, confirmations, apologies, schedules, submissions, or follow-up.
 ---
 
 # Japanese Email
 
-## Purpose
-
-Draft or revise concise, natural Japanese emails.
-
 ## Required rules
 
-Read:
-
-- `docs/rules/japanese_email_rules.md`
+Read docs/rules/japanese_email_rules.md.
 
 ## Process
 
-### 1. Identify recipient type
+### 1. Identify recipient
 
-Classify:
-
-- professor
-- university staff
-- company
-- collaborator
-- student
+Classify the recipient as professor, university staff, company, collaborator, or student.
 
 ### 2. Identify purpose
 
-Examples:
-
-- request
-- confirmation
-- apology
-- schedule adjustment
-- technical inquiry
-- document submission
-- follow-up
+Clarify whether the message is a request, confirmation, apology, schedule adjustment, inquiry, submission, or follow-up.
 
 ### 3. Draft
 
-Use:
-
-- short sentences
-- purpose-first structure
-- polite but not excessive keigo
-- only necessary technical details
+Use short sentences, purpose-first structure, polite but restrained keigo, and only necessary technical details.
 
 ### 4. Review
 
-Check:
-
-- too long?
-- too much keigo?
-- unclear request?
-- unnecessary background?
-- missing deadline or attachment mention?
+Check length, keigo, request clarity, unnecessary background, deadline, and attachment mentions.
 
 ## Completion criterion
 
@@ -65,5 +33,6 @@ This skill is complete when:
 
 1. recipient type is clear
 2. email purpose is clear
-3. final Japanese draft is concise and usable
+3. the final Japanese draft is concise and usable
 4. unnecessary explanation is removed
+5. the response includes a Skill usage receipt

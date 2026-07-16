@@ -1,0 +1,7 @@
+interface:
+  display_name: "Presentation Review"
+  short_description: "Review academic slide logic, evidence, and visuals"
+  default_prompt: "Use $presentation-review to review this presentation."
+
+policy:
+  allow_implicit_invocation: true

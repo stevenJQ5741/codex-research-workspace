@@ -1,116 +1,56 @@
-﻿---
+---
 name: analysis-feedback-loop
-description: Reproducible experimental data analysis workflow with input checks, assumption checks, script execution, output validation, and compact reporting.
-disable-model-invocation: true
+description: Run reproducible experimental or model analysis with provenance, formula audits, unit checks, staged outputs, scientific sanity checks, and manuscript-ready handoff. Use automatically for calculations, workbooks, plots, tables, fitting, or updates that must remain traceable to raw sources.
 ---
 
 # Analysis Feedback Loop
 
-## Purpose
-
-Analyze experimental data without overwriting raw files and with a reproducible feedback loop.
-
-Use this for:
-
-- CSV data
-- DSC data
-- temperature data
-- mechanical testing data
-- figure generation
-- table generation
-
 ## Required rules
 
-Read:
-
-- `docs/rules/data_management_rules.md`
-
-Read additional scientific rules only when needed.
+Read docs/rules/data_management_rules.md and one relevant scientific rule when needed.
 
 ## Process
 
-### 1. Input check
+### 1. Inventory inputs
 
-Identify:
+Record source path, file role, sample identity, units, sheet or range, missing values, and expected output. Do not modify raw inputs.
 
-- raw input files
-- file format
-- units
-- sample names
-- missing values
-- expected columns
-- output target
+### 2. Register assumptions
 
-Do not modify raw files.
+Label preprocessing, constants, formulas, normalization, sign conventions, fitting choices, and substitutions as measured, calculated, literature-derived, or assumed.
 
-### 2. Assumption check
+### 3. Establish a baseline
 
-State assumptions before analysis:
+Reproduce an existing known value, workbook row, or reference calculation before extending the analysis. Treat baseline mismatch as a stop condition requiring diagnosis.
 
-- preprocessing
-- baseline correction
-- smoothing
-- filtering
-- fitting
-- normalization
-- model parameters
+### 4. Implement the calculation
 
-### 3. Reproducible script
+Create rerunnable code with relative paths and deterministic outputs. Save machine-readable results and a source manifest where practical.
 
-Create or update a script under:
+### 5. Audit formulas and units
 
-```text
-scripts/data_analysis/
-```
+Check dimensions, conversions, signs, row and column mappings, repeated constants, and solver targets. Preserve intermediate values needed to diagnose disagreement.
 
-or:
+### 6. Validate scientifically
 
-```text
-scripts/figure_generation/
-```
+Check physical ranges, trends, sensitivity, sample count, fit degrees of freedom, and whether the result supports correlation, interpretation, or causation.
 
-Use relative paths.
+### 7. Generate communication artifacts
 
-### 4. Output generation
+Create figures and tables from verified results. Cross-check labels, legends, captions, and manuscript values against machine-readable output.
 
-Save outputs to:
+### 8. Report deltas
 
-```text
-outputs/figures/
-outputs/tables/
-outputs/reports/
-data/processed/
-```
-
-as appropriate.
-
-### 5. Validation
-
-Check:
-
-- whether outputs were created
-- whether values are physically reasonable
-- whether plots match the intended interpretation
-- whether any conclusion is overclaimed
-
-### 6. Compact report
-
-Report:
-
-1. input files
-2. preprocessing
-3. assumptions
-4. outputs generated
-5. key results
-6. limitations
-7. next step
+Report inputs, assumptions, baseline result, changes from the prior version, generated files, limitations, and next validation step.
 
 ## Completion criterion
 
 This skill is complete when:
 
-1. raw data are untouched
-2. reproducible script exists
-3. outputs are saved in the correct folders
-4. assumptions are recorded
-5. limitations are explicit
+1. raw inputs are unchanged and provenance is recorded
+2. assumptions and evidence classes are explicit
+3. a baseline is reproduced or the mismatch is resolved
+4. formulas, units, and signs pass audit
+5. results and communication artifacts are reproducible
+6. scientific limitations and fit strength are stated
+7. the response includes a Skill usage receipt

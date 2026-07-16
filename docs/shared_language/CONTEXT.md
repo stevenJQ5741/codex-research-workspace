@@ -67,6 +67,26 @@ Interlaminar shear strength. For reheating studies, ILSS changes should be conne
 
 The controlled vocabulary used by the user and Codex to reduce verbosity and ambiguity.
 
+### Evidence ledger
+
+A compact mapping from a scientific claim or derived value to its source, evidence class, assumptions, limitations, and permitted wording.
+
+### Release candidate
+
+The exact manuscript, figure, table, workbook, or PDF version currently being checked for delivery. It must be identified explicitly before QA.
+
+### Skill usage receipt
+
+A compact final-response record naming the Skills that materially affected the task, their roles, and any evidence-based revision signal.
+
+### Invocation gate
+
+The rule that allows a clearly matched Skill to proceed automatically but requires one confirmation when the workflow is ambiguous, method-sensitive, expensive, or materially expands scope.
+
+### Managed Skill copy
+
+A local Skill installed from this repository and marked as replaceable by scripts/install_skills.ps1. Unmarked personal Skills must not be overwritten.
+
 ## Unresolved terms
 
 Add unresolved terms here when needed.

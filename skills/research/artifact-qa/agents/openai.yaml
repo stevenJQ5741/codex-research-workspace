@@ -1,0 +1,7 @@
+interface:
+  display_name: "Artifact QA"
+  short_description: "Verify figures, tables, DOCX, PDF, and rendered layout"
+  default_prompt: "Use $artifact-qa to verify these research artifacts."
+
+policy:
+  allow_implicit_invocation: true

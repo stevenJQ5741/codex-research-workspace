@@ -1,89 +1,39 @@
-﻿---
+---
 name: research-grill
-description: Relentless research interview for clarifying experiments, manuscript arguments, presentations, proposals, or analysis plans before execution.
-disable-model-invocation: true
+description: Clarify high-impact research, experiment, analysis, or manuscript decisions by resolving hidden assumptions from available evidence before asking concise blocking questions. Use automatically when the intended claim, model boundary, data sufficiency, or validation standard is unclear.
 ---
 
 # Research Grill
 
-## Purpose
-
-Clarify a research plan before Codex writes, analyzes, or modifies files.
-
-Use this when the task is ambiguous, high-stakes, or likely to suffer from hidden assumptions.
-
 ## Process
 
-### 1. Establish the task boundary
+### 1. Define the decision
 
-Identify:
+State the target output, audience, scientific decision, files in scope, and what must not change.
 
-- target output
-- audience
-- language
-- deadline if relevant
-- source files or data
-- what must not be changed
+### 2. Inspect before asking
 
-### 2. Identify hidden assumptions
+Search available manuscripts, data, scripts, figures, plans, and prior decisions for answers. Do not ask for information that is already recoverable.
 
-Check for assumptions about:
+### 3. Build an assumption register
 
-- sample identity
-- fiber type
-- matrix type
-- experimental condition
-- temperature range
-- baseline correction
-- model parameters
-- sensor position
-- figure meaning
-- manuscript conclusion
+Classify each critical item as confirmed, inferred, provisional, missing, or contradictory. Include units, sample identity, preprocessing, model parameters, causal claims, and validation data where relevant.
 
-### 3. Ask one question at a time
+### 4. Ask only blocking questions
 
-Ask only one question per turn.
+Ask no more than three concise questions at once, and only when different answers would materially change the work. State the consequence and recommended default.
 
-For each question:
+### 5. Produce an execution brief
 
-1. state why it matters
-2. provide a recommended answer if possible
-3. wait for the user response
-
-Do not ask a batch of questions.
-
-### 4. Explore files instead of asking when possible
-
-If the answer can be obtained by reading available files, inspect the files instead of asking the user.
-
-### 5. Produce a clarified task brief
-
-When enough information is resolved, create a concise task brief:
-
-```markdown
-## Clarified task brief
-
-### Goal
-
-### Inputs
-
-### Constraints
-
-### Assumptions
-
-### Confirmed decisions
-
-### Unresolved risks
-
-### Next action
-```
+Record goal, inputs, exclusions, confirmed facts, assumptions, unresolved risks, validation gates, and first action.
 
 ## Completion criterion
 
 This skill is complete when:
 
-1. the task goal is clear
-2. required inputs are identified
-3. critical assumptions are listed
-4. unresolved risks are explicit
-5. the next action is safe and specific
+1. the decision and deliverable are explicit
+2. available evidence has been inspected before questioning
+3. critical assumptions have status labels
+4. only genuinely blocking questions remain
+5. the execution brief contains measurable validation gates
+6. the response includes a Skill usage receipt

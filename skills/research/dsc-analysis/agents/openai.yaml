@@ -1,0 +1,7 @@
+interface:
+  display_name: "DSC Analysis"
+  short_description: "Analyze DSC transitions with cautious interpretation"
+  default_prompt: "Use $dsc-analysis to analyze these DSC data."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Ask Jiang"
+  short_description: "Route research tasks to the smallest safe workflow"
+  default_prompt: "Use $ask-jiang to select the smallest research workflow."
+
+policy:
+  allow_implicit_invocation: true

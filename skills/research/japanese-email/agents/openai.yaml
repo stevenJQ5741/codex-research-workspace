@@ -1,0 +1,7 @@
+interface:
+  display_name: "Japanese Email"
+  short_description: "Draft concise and appropriate Japanese email text"
+  default_prompt: "Use $japanese-email to draft this Japanese email."
+
+policy:
+  allow_implicit_invocation: true

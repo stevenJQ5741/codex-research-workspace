@@ -1,88 +1,47 @@
-﻿---
+---
 name: manuscript-review
-description: Two-axis manuscript review for scientific evidence and academic writing quality.
-disable-model-invocation: true
+description: Review a manuscript across evidence safety, argument structure, cross-artifact consistency, academic language, and submission readiness. Use automatically for section revision, full-paper review, response preparation, or checks against data, figures, tables, citations, and model assumptions.
 ---
 
 # Manuscript Review
 
-## Purpose
-
-Review or revise academic writing without sacrificing scientific accuracy.
-
 ## Required rules
 
-Read:
+Read docs/rules/manuscript_writing_rules.md and only the relevant scientific rule.
 
-- `docs/rules/manuscript_writing_rules.md`
+## Review axes
 
-Read project-specific rules only when needed.
+### 1. Evidence safety
 
-## Two-axis review
+Verify values, evidence classes, assumptions, causal strength, uncertainty, sample size, and whether calculated values are distinguished from measurements.
 
-Always separate two axes:
+### 2. Argument structure
 
-### Axis 1: Evidence safety
+Check that the research gap, method, result, interpretation, limitation, and contribution form a defensible chain. Flag conclusions that outrun the results.
 
-Check whether the text:
+### 3. Cross-artifact consistency
 
-- matches experimental results
-- separates observation from interpretation
-- states model assumptions
-- avoids overclaiming
-- avoids unsupported causality
-- does not treat calculated values as measured values
+Compare manuscript text with source tables, figures, captions, equations, symbols, units, and supplementary artifacts. Treat inconsistencies as higher priority than style.
 
-### Axis 2: Writing quality
+### 4. Writing quality
 
-Check whether the text:
+Check academic English, paragraph function, transitions, terminology, concision, and directly usable wording.
 
-- is logical
-- is concise
-- connects to surrounding paragraphs
-- uses academic English
-- uses consistent terminology
-- is directly usable in the manuscript
+### 5. Release readiness
 
-## Process
+Check unresolved placeholders, missing citations, author or journal fields, numbering, references, and required files.
 
-### 1. Identify target
+## Output
 
-Identify:
-
-- section type
-- target journal or conference if known
-- surrounding context
-- whether final replacement text is required
-
-### 2. Review evidence safety
-
-List only material problems.  
-Do not over-comment on harmless style issues.
-
-### 3. Review writing quality
-
-Focus on clarity, flow, precision, and defensibility.
-
-### 4. Produce revision
-
-When asked to revise, provide directly usable replacement text.
-
-### 5. Final check
-
-Before finalizing, check:
-
-- no invented data
-- no invented citations
-- no overclaiming
-- no change to official titles or IDs
-- no unsupported mechanism
+Lead with material findings ordered by severity. Give file or section evidence, then provide replacement text when requested. Separate confirmed defects from unresolved questions.
 
 ## Completion criterion
 
 This skill is complete when:
 
-1. evidence-safety issues are identified or cleared
-2. writing-quality issues are identified or cleared
-3. final replacement text is provided if requested
-4. remaining uncertainty is explicitly stated
+1. all five review axes are checked
+2. material findings are prioritized and evidence-linked
+3. cross-artifact discrepancies are resolved or listed
+4. replacement text is supplied when requested
+5. remaining uncertainty and release blockers are explicit
+6. the response includes a Skill usage receipt

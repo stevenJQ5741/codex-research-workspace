@@ -1,86 +1,60 @@
-﻿---
+---
 name: ask-jiang
-description: Router for Quan Jiang's research skills. Use manually when unsure which workflow, rule file, or skill should be used.
-disable-model-invocation: true
+description: Route Quan Jiang's research task to the smallest effective combination of installed skills and rule files. Use automatically when a task spans multiple workflows, the correct workflow is unclear, or invoking a skill may require user confirmation.
 ---
 
 # Ask Jiang Router
 
-## Purpose
-
-Recommend the smallest suitable workflow for the user's current task.
-
-This skill should not execute the full task.  
-It should classify the task and recommend:
-
-1. which skill to invoke
-2. which rule files to read
-3. whether shared language or decision logs need updating
-4. the minimum next action
-
 ## Process
 
-### 1. Classify the task
+### 1. Classify the deliverable
 
-Choose one primary category:
+Identify the primary output: research decision, analysis, manuscript, figure or table set, presentation, email, repository change, or handoff.
 
-- research planning
-- manuscript writing or revision
-- DSC or thermal analysis
-- heat-transfer or reheating analysis
-- IFSS or interface interpretation
-- presentation or slide review
-- Japanese email
-- data analysis
-- handoff or cross-computer continuation
-- repository maintenance
+### 2. Check evidence and risk
 
-### 2. Recommend a skill
+Identify source files, missing inputs, scientific stakes, file-mutation risk, and whether the task can be answered read-only.
 
-Use this map:
+### 3. Select the smallest workflow
 
-| Task | Skill |
+Choose one primary skill and at most two supporting skills:
+
+| Need | Skill |
 | --- | --- |
-| unclear plan or experimental design | `skills/research/research-grill/SKILL.md` |
-| terminology or shared language update | `skills/research/shared-language/SKILL.md` |
-| data analysis with reproducibility requirements | `skills/research/analysis-feedback-loop/SKILL.md` |
-| manuscript review | `skills/research/manuscript-review/SKILL.md` |
-| DSC interpretation | `skills/research/dsc-analysis/SKILL.md` |
-| heat-transfer or ILSS reheating | `skills/research/heat-transfer-analysis/SKILL.md` |
-| presentation or PPT review | `skills/research/presentation-review/SKILL.md` |
-| Japanese email | `skills/research/japanese-email/SKILL.md` |
-| session transfer or cross-computer continuation | `skills/research/handoff/SKILL.md` |
+| consequential ambiguity | research-grill |
+| reproducible calculations or figures | analysis-feedback-loop |
+| full manuscript production | manuscript-pipeline |
+| manuscript evidence and language review | manuscript-review |
+| scientific claim audit | claim-evidence-audit |
+| terminology or symbol control | shared-language |
+| DSC interpretation | dsc-analysis |
+| heat-transfer or reheating analysis | heat-transfer-analysis |
+| presentation review | presentation-review |
+| Japanese email | japanese-email |
+| research profile, brief CV, or research-summary editing | research-brief-editor |
+| final native DOCX/PPTX-to-PDF release on Windows | office-native-release |
+| general DOCX, PDF, spreadsheet, figure, or table verification | artifact-qa |
+| cross-session continuation | handoff |
+| skill-use disclosure | skill-usage-report |
 
-### 3. Recommend rule files
+Read only the rule files required by the selected skills.
 
-Use only the smallest relevant set.
+### 4. Apply the invocation gate
 
-Default:
+Proceed automatically when the match is clear and the requested action already authorizes the work. Ask once before execution when the workflow is ambiguous, method-sensitive, unusually expensive, or materially expands scope.
 
-- `AGENTS.md`
-- `README.md`
-- `PLANS.md`
+Always obtain separate authorization for destructive actions, external messages, commits, pushes, or sensitive-data handling when the user has not already authorized them.
 
-Then add one or two relevant files from:
+### 5. Report actual use
 
-- `docs/rules/manuscript_writing_rules.md`
-- `docs/rules/dsc_analysis_rules.md`
-- `docs/rules/heat_transfer_rules.md`
-- `docs/rules/ifss_interface_rules.md`
-- `docs/rules/natural_fiber_project_rules.md`
-- `docs/rules/data_management_rules.md`
-- `docs/rules/japanese_email_rules.md`
-- `docs/rules/presentation_rules.md`
-- `docs/rules/current_research_context.md`
-- `docs/shared_language/CONTEXT.md`
+End with a Skill usage receipt. List only skills whose instructions materially affected the work.
 
-### 4. Completion criterion
+## Completion criterion
 
-The router is complete when it outputs:
+This skill is complete when:
 
-1. recommended skill
-2. recommended rule files
-3. reason for the recommendation
-4. first concrete next instruction for the user
-
-Do not perform the actual task unless the user explicitly asks.
+1. the deliverable and risk are classified
+2. one primary and no more than two supporting skills are selected
+3. only relevant rule files are loaded
+4. automatic execution or confirmation matches the invocation gate
+5. actual skill use is disclosed

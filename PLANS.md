@@ -35,18 +35,34 @@ The repository now includes a research-oriented skills system.
 
 Default behavior:
 
-1. Do not load all skills by default.
-2. Use `skills/router/ask-jiang/SKILL.md` when unsure which workflow fits.
-3. Use task-specific skills only when relevant.
-4. Keep scientific rules in `docs/rules/`.
-5. Keep shared terms in `docs/shared_language/CONTEXT.md`.
-6. Keep hard-to-reverse decisions in `docs/adr/`.
+1. Install Skills with `scripts/install_skills.ps1`.
+2. Select relevant Skills automatically from concise metadata.
+3. Use `skills/router/ask-jiang/SKILL.md` for ambiguous or multi-workflow tasks.
+4. Use at most one primary and two supporting Skills.
+5. Ask once before method-sensitive or scope-expanding workflows.
+6. Keep scientific rules in `docs/rules/`.
+7. Keep shared terms in `docs/shared_language/CONTEXT.md`.
+8. Keep hard-to-reverse decisions in `docs/adr/`.
+9. Report actual Skill use in every final response.
 
 Immediate next tasks:
 
-- [ ] Test `ask-jiang` on a real task.
-- [ ] Test `research-grill` before the next complex manuscript or experiment task.
+- [ ] Test automatic routing on real manuscript, analysis, and email tasks.
+- [ ] Review Skill usage receipts after several sessions for overlap or missing workflows.
 - [ ] Add project-specific shared language entries as future projects require.
+
+### Integrated skills status
+
+Current status:
+
+- [x] Merge the pilot improvements into one canonical `skills/` tree.
+- [x] Add manuscript pipeline, claim-evidence audit, artifact QA, and Skill usage reporting.
+- [x] Add implicit-invocation metadata and a confirmation gate.
+- [x] Add explicit completion criteria to every Skill.
+- [x] Add a cross-computer installer.
+- [x] Add separate research-brief editing and native Office release Skills.
+- [x] Validate Word/PDF and PowerPoint/PDF release paths on the primary Windows workstation.
+- [ ] Evaluate invocation precision and revise descriptions from real usage evidence.
 
 ### Immediate Tasks
 
@@ -58,6 +74,7 @@ Immediate next tasks:
 - [ ] Test the workflow on another computer using `git clone`, `git pull`, and Codex.
 - [ ] Add project-specific research briefs as new projects begin.
 - [ ] Add data-analysis scripts when experimental datasets are available.
+- [ ] Recheck Office preflight and native release smoke tests after Office, Windows, or Codex runtime updates.
 
 ### Standard Workflow
 

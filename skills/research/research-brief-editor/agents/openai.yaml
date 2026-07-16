@@ -1,0 +1,7 @@
+interface:
+  display_name: "Research Brief Editor"
+  short_description: "Edit evidence-grounded research briefs with precise claims"
+  default_prompt: "Use $research-brief-editor to revise this research brief from its source evidence."
+
+policy:
+  allow_implicit_invocation: true

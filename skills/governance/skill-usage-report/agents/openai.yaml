@@ -1,0 +1,7 @@
+interface:
+  display_name: "Skill Usage Report"
+  short_description: "Report skills used and workflow revision signals"
+  default_prompt: "Use $skill-usage-report to report which skills affected this task."
+
+policy:
+  allow_implicit_invocation: true

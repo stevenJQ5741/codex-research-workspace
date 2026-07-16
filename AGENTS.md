@@ -103,10 +103,9 @@ Read `docs/rules/current_research_context.md` only when project background is ne
 ## Skills map
 
 Reusable workflows live under `skills/`.
+Install them with `scripts/install_skills.ps1` so Codex can discover them.
 
-Do not load all skills by default.
-
-Use the router when unsure:
+Use the router automatically when the workflow is unclear:
 
 - `skills/router/ask-jiang/SKILL.md`
 
@@ -118,14 +117,29 @@ Task-specific skills:
 | update shared terminology | `skills/research/shared-language/SKILL.md` |
 | reproducible data analysis | `skills/research/analysis-feedback-loop/SKILL.md` |
 | manuscript review or revision | `skills/research/manuscript-review/SKILL.md` |
+| full manuscript production | `skills/research/manuscript-pipeline/SKILL.md` |
+| scientific claim audit | `skills/research/claim-evidence-audit/SKILL.md` |
 | DSC analysis | `skills/research/dsc-analysis/SKILL.md` |
 | heat-transfer or ILSS reheating analysis | `skills/research/heat-transfer-analysis/SKILL.md` |
 | presentation review | `skills/research/presentation-review/SKILL.md` |
 | Japanese email | `skills/research/japanese-email/SKILL.md` |
+| research profile, brief CV, or research summary | `skills/research/research-brief-editor/SKILL.md` |
+| native DOCX/PPTX-to-PDF release on Windows | `skills/research/office-native-release/SKILL.md` |
+| artifact verification | `skills/research/artifact-qa/SKILL.md` |
 | cross-session handoff | `skills/research/handoff/SKILL.md` |
+| final Skill receipt | `skills/governance/skill-usage-report/SKILL.md` |
 
 Skills are workflows.
 Detailed scientific rules remain in `docs/rules/`.
+
+### Invocation policy
+
+1. Select relevant installed Skills automatically.
+2. Use at most one primary and two supporting Skills.
+3. Proceed when the match is clear and the request already authorizes the work.
+4. Ask once when the workflow is ambiguous, method-sensitive, expensive, or expands scope.
+5. Keep destructive, external, sensitive, commit, and push actions separately authorized.
+6. End every final response with actual Skill usage or explicit non-use.
 
 ## Session workflow
 
@@ -139,7 +153,7 @@ Default start:
 4. Do not read all detailed rules automatically.
 5. Decide which detailed rule files are relevant.
 6. Summarize the current state briefly.
-7. Wait for the user's next instruction before major edits.
+7. Apply the invocation policy before major work.
 
 ### End of session
 

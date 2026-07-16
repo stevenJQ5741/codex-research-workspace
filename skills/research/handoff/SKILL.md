@@ -1,91 +1,43 @@
-﻿---
+---
 name: handoff
-description: Compact cross-session or cross-computer handoff for continuing research work with another Codex session.
-disable-model-invocation: true
+description: Create a compact, evidence-linked handoff for continuing research or manuscript work across sessions or computers. Use automatically when work has generated artifacts, unresolved validation, version choices, or exact next commands that another session must recover.
 ---
 
 # Handoff
 
-## Purpose
-
-Create a compact handoff document so another Codex session or another computer can continue the work.
-
 ## Process
 
-### 1. Identify continuation target
+### 1. Define the continuation point
 
-Ask or infer:
+State the next objective, current release candidate, authoritative files, and work that must not be repeated.
 
-- what the next session will continue
-- which files matter
-- what should not be repeated
-- what risks remain
+### 2. Capture evidence state
 
-### 2. Avoid duplication
+Separate verified results, provisional assumptions, unresolved contradictions, placeholders, and blocked items. Reference paths instead of duplicating content.
 
-Do not repeat content already captured in:
+### 3. Record reproducibility state
 
-- `PLANS.md`
-- `notes/decision_logs/decision_log.md`
-- `docs/shared_language/CONTEXT.md`
-- project briefs
-- existing reports
-- commits
+Include scripts or commands run, important outputs, validation completed, failures, and the exact first next action.
 
-Reference paths instead.
+### 4. Record workflow state
 
-### 3. Redact sensitive information
+List Skills used, Skills recommended next, and any behavior that should be revised.
 
-Do not include:
+### 5. Protect sensitive information
 
-- API keys
-- passwords
-- visa details
-- residence card details
-- passport information
-- private identifiers
+Exclude credentials, identity documents, private identifiers, and raw confidential content.
 
-### 4. Write handoff
+### 6. Write the handoff
 
-Save under:
-
-```text
-notes/session_summaries/
-```
-
-Use filename:
-
-```text
-YYYY-MM-DD-handoff-[short-topic].md
-```
-
-## Handoff format
-
-```markdown
-# Handoff - [Topic]
-
-## Purpose of next session
-
-## Current state
-
-## Important files
-
-## Confirmed decisions
-
-## Unresolved issues
-
-## Suggested skills
-
-## First next action
-
-## Sensitive information excluded
-```
+Save a compact file under notes/session_summaries/ only when the session produced meaningful continuation state.
 
 ## Completion criterion
 
 This skill is complete when:
 
-1. a compact handoff file is written
-2. it references existing files instead of duplicating them
-3. sensitive information is excluded
-4. next session has a clear first action
+1. the next session can identify authoritative artifacts
+2. verified, provisional, unresolved, and placeholder states are separated
+3. reproducibility and validation status are recorded
+4. the first next action is executable
+5. Skill usage and suggested next Skills are included
+6. sensitive information is excluded
