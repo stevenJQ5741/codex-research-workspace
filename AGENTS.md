@@ -141,6 +141,15 @@ Detailed scientific rules remain in `docs/rules/`.
 5. Keep destructive, external, sensitive, commit, and push actions separately authorized.
 6. End every final response with actual Skill usage or explicit non-use.
 
+## GitHub rolling-default policy
+
+1. Create each upload on a new descriptive working branch.
+2. After its first successful Push, rename it to `agent/YYYYMMDD-HHmm-topic` using the PushEvent time in JST.
+3. Validate the pushed commit before promotion.
+4. Promote the newest validated upload branch to the repository default and synchronize local `origin/HEAD`.
+5. Keep the previous default branch as a historical version; do not delete timestamped branches without explicit approval.
+6. Use a pull request only when review or comparison is requested; default-branch promotion does not require a merge PR.
+
 ## Session workflow
 
 ### Start of session

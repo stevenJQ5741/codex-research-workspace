@@ -104,3 +104,14 @@ Parallel project and global copies produced duplicate discovery and risked futur
 
 Impact:
 Future presentation work installs `presentation-review` from this repository and keeps project-specific aesthetic ledgers in each workspace. Intermediate PPTX validation uses the lightest sufficient profile; full native Office release remains an explicit final gate.
+
+## 2026-07-27 - Use rolling timestamped default branches
+
+Decision:
+Name each upload branch from its first successful PushEvent time in JST using `agent/YYYYMMDD-HHmm-topic`. After validation, make the newest upload branch the GitHub default and retain the previous default as a historical version.
+
+Reason:
+The user wants the repository landing state to represent the latest uploaded project while older states remain directly recoverable as timestamped branches.
+
+Impact:
+Future publish workflows create and push a new branch, rename it from the recorded PushEvent, validate it, promote it to default, synchronize `origin/HEAD`, and preserve older timestamped branches. Pull requests remain optional review artifacts rather than the promotion mechanism.

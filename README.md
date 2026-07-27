@@ -52,6 +52,18 @@ Push only after explicit approval:
 git push
 ```
 
+### Rolling default versions
+
+Each approved upload becomes a new timestamped version branch:
+
+```text
+agent/YYYYMMDD-HHmm-topic
+```
+
+The timestamp is the first successful Push time in Japan Standard Time. After validation, promote that branch to the GitHub default and update local `origin/HEAD`. Keep the previous default branch as a historical backup. Do not delete older timestamped branches unless explicitly approved.
+
+A pull request is optional for this repository's version-promotion workflow. Use one when review or comparison is useful; otherwise the validated upload branch may be promoted directly.
+
 ## Token-efficient rule system
 
 This repository uses a layered rule system to reduce unnecessary context usage.
