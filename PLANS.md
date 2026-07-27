@@ -62,6 +62,7 @@ Current status:
 - [x] Add a cross-computer installer.
 - [x] Add separate research-brief editing and native Office release Skills.
 - [x] Validate Word/PDF and PowerPoint/PDF release paths on the primary Windows workstation.
+- [x] Consolidate presentation review, revision, aesthetic calibration, and validation into one canonical global Skill.
 - [ ] Evaluate invocation precision and revise descriptions from real usage evidence.
 
 ### Immediate Tasks

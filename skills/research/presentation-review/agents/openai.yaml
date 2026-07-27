@@ -1,7 +1,7 @@
 interface:
-  display_name: "Presentation Review"
-  short_description: "Review academic slide logic, evidence, and visuals"
-  default_prompt: "Use $presentation-review to review this presentation."
+  display_name: "Presentation Review and Revision"
+  short_description: "Review, revise, calibrate, and release academic slides"
+  default_prompt: "Use $presentation-review to review or revise this academic presentation while preserving evidence, manual edits, aesthetic feedback, and final Office fidelity."
 
 policy:
   allow_implicit_invocation: true

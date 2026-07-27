@@ -93,3 +93,14 @@ The split reduces irrelevant release instructions during editorial work and make
 
 Impact:
 Future computers install the same two Skills from this repository. Final DOCX/PPTX releases on Windows use Microsoft Office as the authoritative renderer, structural and semantic pair QA as Layer A, and Poppler rendering plus full-size visual inspection as Layer B. Real usage feedback should revise the canonical Skills directly instead of creating another parallel version tree.
+
+## 2026-07-27 - Consolidate presentation workflows into one global Skill
+
+Decision:
+Replace the short presentation-review workflow and the project-local presentation pilot with one canonical `presentation-review` Skill. Keep deterministic PPTX validation project-independent, require an exported PPTX snapshot for Google Slides, and reserve native PowerPoint release for Windows release candidates.
+
+Reason:
+Parallel project and global copies produced duplicate discovery and risked future drift. Project-specific IFSS filenames and hashes were useful development evidence but do not belong in the reusable Skill.
+
+Impact:
+Future presentation work installs `presentation-review` from this repository and keeps project-specific aesthetic ledgers in each workspace. Intermediate PPTX validation uses the lightest sufficient profile; full native Office release remains an explicit final gate.
