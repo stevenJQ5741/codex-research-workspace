@@ -18,8 +18,18 @@ $repoRoot = Split-Path -Parent $PSScriptRoot
 
 function Invoke-Git {
     $gitArguments = @($args)
-    $output = & git -C $repoRoot @gitArguments 2>&1
-    if ($LASTEXITCODE -ne 0) {
+    $previousErrorActionPreference = $ErrorActionPreference
+    try {
+        # Windows PowerShell 5.1 may turn normal Git stderr progress into a
+        # terminating NativeCommandError when the script-wide preference is
+        # Stop. Native command success is determined by its exit code.
+        $ErrorActionPreference = "Continue"
+        $output = & git -C $repoRoot @gitArguments 2>&1
+        $exitCode = $LASTEXITCODE
+    } finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+    }
+    if ($exitCode -ne 0) {
         throw "git $($gitArguments -join ' ') failed:`n$($output -join "`n")"
     }
     return @($output)
@@ -48,7 +58,7 @@ if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
     throw "GitHub CLI (gh) is required to verify open pull requests."
 }
 
-Invoke-Git fetch $Remote --tags | Out-Null
+Invoke-Git fetch --prune $Remote --tags | Out-Null
 
 $headLines = Invoke-Git ls-remote --symref $Remote HEAD
 $headLine = $headLines | Where-Object { $_ -match "^ref:\s+refs/heads/(.+)\s+HEAD$" } |

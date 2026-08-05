@@ -51,4 +51,5 @@ Test clone, installation, and discovery on a second computer. The default printe
 was Adobe PDF during successful tests; Microsoft Print to PDF is not required
 for the authoritative export path.
 
-No commit, push, or remote branch change was made.
+This validation was later included in the repository publication recorded in
+`notes/session_summaries/2026-08-05-final-validation-and-publication.md`.

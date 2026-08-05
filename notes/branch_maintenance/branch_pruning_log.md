@@ -38,3 +38,37 @@ or authorized. All three branch tips are reachable from the current default.
 - [x] default branch unchanged
 - [x] `origin/HEAD` unchanged
 - [x] protected branch reachability unchanged
+
+## 2026-08-05 - Publication and post-promotion dry run
+
+### Repository state
+
+- current default: `agent/20260805-1634-repository-stability`
+- previous default: `agent/20260727-1245-presentation-workflow`
+- open pull requests: 0
+- remote branches: 4
+- remote tags: 1
+- published annotated snapshot: `snapshot/2026-H1`
+- snapshot target: `0555b5a223cc84f697b6f3fc8d70e669a205f734`
+- age cutoff: branch tip earlier than `2026-02-05T16:45:00+09:00`
+
+The first post-promotion run exposed a stale local remote-tracking ref left by
+the GitHub branch rename. `branch_pruning_dry_run.ps1` now fetches with
+`--prune` before inventory so its branch table reflects actual remote refs.
+
+### Dry-run table
+
+| Remote branch | Tip commit | Tip time | Older than 6 months | Open PR | Active/protected reason | Unique commits vs current default | Covered by current default or snapshot | Delete candidate |
+| --- | --- | --- | --- | --- | --- | ---: | --- | --- |
+| `agent/20260805-1634-repository-stability` | `e4b7b34` | 2026-08-05 15:34 +08:00 | no | no | current default | 0 | yes | no |
+| `agent/20260727-1245-presentation-workflow` | `01bee94` | 2026-07-27 13:06 +09:00 | no | no | previous default | 0 | yes | no |
+| `agent/20260716-1402-main` | `b326172` | 2026-07-16 14:02 +09:00 | no | no | age criterion not met | 0 | yes | no |
+| `agent/20260716-1401-integrate-research-skills` | `2137450` | 2026-07-16 13:27 +09:00 | no | no | age criterion not met | 0 | yes | no |
+
+### Decision and checks
+
+- No remote branch satisfies all deletion criteria.
+- No remote branch was deleted.
+- The previous default and all historical branches remain preserved.
+- The current default, `origin/HEAD`, snapshot tag, and all four branch tips
+  were verified after promotion.

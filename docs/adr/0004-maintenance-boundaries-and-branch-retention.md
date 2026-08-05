@@ -77,7 +77,10 @@ default branches without a long-term pruning standard.
 1. Validate the complete intended repository state before publication.
 2. Push one provisional upload branch, obtain its first successful GitHub
    `PushEvent`, and rename the branch to `agent/YYYYMMDD-HHmm-topic` using that
-   event time in JST.
+   event time in JST. If the event stream is unavailable, use GitHub's server
+   `repository.pushedAt` captured immediately after one controlled push, and
+   record the pushed ref and object ID. This fallback is valid only when no
+   intervening push occurred; never substitute the local clock.
 3. Verify the renamed ref and commit before promoting it to GitHub default.
 4. Preserve the previous default and synchronize local `origin/HEAD`.
 5. Use pull requests only when review or comparison is requested.
