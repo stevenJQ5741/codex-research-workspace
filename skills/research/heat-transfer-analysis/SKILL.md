@@ -1,43 +1,37 @@
 ---
 name: heat-transfer-analysis
-description: Analyze heat transfer, reheating, moving heat-source models, feed-rate effects, contact-coefficient sensitivity, and ILSS-related thermal interpretation. Use automatically for model calculations or writing that links calculated temperature to experimental mechanical behavior.
+description: Analyze heat transfer, reheating, moving heat sources, feed-rate effects, contact-coefficient sensitivity, and links between calculated temperature and mechanical behavior. Use for thermal model calculations, sensitivity studies, figures, tables, or cautious manuscript interpretation.
 ---
 
 # Heat-Transfer Analysis
 
-## Required rules
+## Procedure
 
-Read docs/rules/heat_transfer_rules.md and docs/rules/manuscript_writing_rules.md. Read DSC rules only when DSC evidence is discussed.
+1. Read `docs/rules/heat_transfer_rules.md`,
+   `docs/rules/data_management_rules.md`, and only the applicable project brief.
+2. Confirm geometry, boundaries, initial conditions, time or speed, thermal
+   properties, contact parameters, and whether each value is measured,
+   literature-derived, fitted, or assumed.
+3. Register equations, units, sign conventions, simplifications, and model range.
+4. Reproduce a baseline or limiting case before calculating new conditions.
+5. Check sensitivity for uncertain parameters and report the examined range.
+6. Compare calculated trends with experiments without calling model outputs
+   measurements or treating consistency as causal proof.
+7. Generate traceable tables, figures, and qualified manuscript wording.
 
-## Process
+## Stop conditions
 
-### 1. Identify model scope
-
-Confirm geometry, boundary assumptions, source and specimen temperatures, feed rate, contact time, thermal contact coefficient, material properties, and which values are measured or calculated.
-
-### 2. State assumptions
-
-State model assumptions before calculation or writing.
-
-### 3. Check sensitivity
-
-Treat contact-coefficient discussion as sensitivity analysis. Do not claim it has no effect; use limited influence within the examined range when supported.
-
-### 4. Link to experiment cautiously
-
-Do not say the model proves melting or that ILSS improvement is solely caused by melting. State consistency between calculated temperature and observed trends when supported.
-
-### 5. Produce outputs
-
-Generate a calculation table, figure, or cautious manuscript paragraph as requested.
+Stop when required geometry or boundary conditions are missing, units or time
+scales are inconsistent, a baseline cannot be reproduced, sensitivity is
+untested for a consequential uncertain parameter, or the requested mechanism
+claim exceeds the evidence.
 
 ## Completion criterion
 
 This skill is complete when:
 
-1. model assumptions are explicit
-2. calculated values are not described as measurements
-3. sensitivity interpretation is cautious
-4. the ILSS mechanism is not overclaimed
-5. final wording is directly usable when requested
-6. the response includes a Skill usage receipt
+1. scope, inputs, assumptions, and evidence classes are explicit
+2. baseline, units, and limiting behavior pass
+3. uncertain parameters have an appropriate sensitivity check
+4. calculated and measured quantities remain distinct
+5. outputs and wording match the model's validated range

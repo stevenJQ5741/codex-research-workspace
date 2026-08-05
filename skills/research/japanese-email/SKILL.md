@@ -1,38 +1,32 @@
 ---
 name: japanese-email
-description: Draft or revise concise, natural, and appropriately polite Japanese emails. Use automatically for messages to professors, companies, university staff, collaborators, or students involving requests, confirmations, apologies, schedules, submissions, or follow-up.
+description: Draft or revise concise, natural, and appropriately polite Japanese emails. Use for messages to professors, companies, university staff, collaborators, or students involving requests, confirmations, apologies, schedules, submissions, or follow-up.
 ---
 
 # Japanese Email
 
-## Required rules
+## Procedure
 
-Read docs/rules/japanese_email_rules.md.
+1. Read `docs/rules/japanese_email_rules.md`.
+2. Identify recipient relationship, purpose, required action, deadline,
+   attachments, and facts that must not change.
+3. Draft with a purpose-first structure, short sentences, restrained keigo, and
+   only necessary context.
+4. Check request clarity, tone, length, names, dates, deadlines, and attachment
+   references.
+5. Return one directly usable draft unless alternatives are requested.
 
-## Process
+## Stop conditions
 
-### 1. Identify recipient
-
-Classify the recipient as professor, university staff, company, collaborator, or student.
-
-### 2. Identify purpose
-
-Clarify whether the message is a request, confirmation, apology, schedule adjustment, inquiry, submission, or follow-up.
-
-### 3. Draft
-
-Use short sentences, purpose-first structure, polite but restrained keigo, and only necessary technical details.
-
-### 4. Review
-
-Check length, keigo, request clarity, unnecessary background, deadline, and attachment mentions.
+Stop when recipient, requested action, deadline, or a consequential fact cannot
+be resolved and guessing could cause harm. Do not send the email without separate
+authorization.
 
 ## Completion criterion
 
 This skill is complete when:
 
-1. recipient type is clear
-2. email purpose is clear
-3. the final Japanese draft is concise and usable
-4. unnecessary explanation is removed
-5. the response includes a Skill usage receipt
+1. recipient and purpose are clear
+2. required action and timing are unambiguous
+3. the Japanese is concise, natural, and appropriately polite
+4. names, dates, facts, and attachments are checked

@@ -1,71 +1,41 @@
 ---
 name: research-brief-editor
-description: Plan and revise evidence-grounded academic profiles, brief CVs, research summaries, publisher-meeting briefs, and conference introductions. Use when Codex must distill dissertations or papers, calibrate scientific claims, preserve an approved visual baseline, select traceable source figures, and produce an authoritative DOCX or PPTX source. Do not use for generic Office conversion, release rendering, full manuscripts, or slide-deck storytelling; use office-native-release for final export and QA.
+description: Plan and revise evidence-grounded academic profiles, brief CVs, research summaries, publisher-meeting briefs, and conference introductions into one authoritative DOCX or PPTX source. Use for short audience-centered research artifacts; do not use for full manuscripts, slide-deck storytelling, or native Office release.
 ---
 
 # Research Brief Editor
 
-Produce an audience-centered, evidence-safe Office source artifact. Keep renderer and release mechanics outside this Skill.
+## Procedure
 
-## 1. Define the editorial contract
+1. Define audience, purpose, language, page or slide budget, approved baseline,
+   protected source hashes, required sections, privacy exclusions, and
+   authoritative output.
+2. Build a ledger for every consequential claim with source, evidence type,
+   permitted wording, and limitation.
+3. Organize around the audience's decision need; keep CV facts, research results,
+   interpretations, and future plans distinct.
+4. Preserve approved geometry, reading order, palette, typography, and stable
+   pages or slides unless redesign is authorized.
+5. Use traceable source figures with complete axes, labels, aspect ratio, source
+   location, and permitted caption wording.
+6. Work from a copy and maintain one reproducible authoritative DOCX or PPTX
+   source. Do not edit a PDF independently.
+7. Verify required claims, critical glyphs, privacy exclusions, and ledger
+   consistency, then hand a declared final source to `office-native-release`.
 
-Record:
+## Stop conditions
 
-- audience, meeting purpose, language, and decision need
-- required page or slide budget and approved baseline
-- immutable source files and baseline SHA-256 hashes
-- required sections, figures, numerical claims, disclaimers, and privacy exclusions
-- authoritative DOCX or PPTX output name
-
-Inspect the baseline before editing. Preserve stable pages, slides, geometry, reading order, palette, and typography unless the request changes them.
-
-## 2. Establish the claim-evidence ledger
-
-For each consequential claim, record the source file, page or figure, evidence type, permitted wording, and limitation. Distinguish:
-
-- experimental result
-- calculation
-- model-derived quantity
-- interpretation
-- proposal or future direction
-
-State studied systems and validation ranges with quantitative claims. Do not convert correlation into causation or a modeled quantity into a direct measurement. Use optimization language when performance depends on balanced mechanisms. Keep unconfirmed book directions or future plans explicitly provisional.
-
-Do not finalize prose until every headline claim is covered by the ledger.
-
-## 3. Build the audience-centered narrative
-
-Organize around the audience's decision need instead of automatically following dissertation chronology. Prefer one positioning sentence followed by three or four linked themes:
-
-1. measurement or method
-2. mechanism or model
-3. validation or quantification
-4. application or design implication
-
-Keep CV facts separate from research interpretation. Place evidence boundaries near the associated claim. Remove side topics that do not support the meeting purpose.
-
-## 4. Preserve source and visual provenance
-
-- Work from a copy; never overwrite evidence or the baseline.
-- Prefer direct source crops for scientific figures.
-- Preserve complete axes, end ticks, legends, labels, symbols, and aspect ratio.
-- Record source page, figure identifier, crop coordinates, and permitted caption wording in code or the ledger.
-- Reuse source-derived styles and builder helpers instead of repeated manual formatting.
-- Keep internal traceability notes in the working artifact until the clean external source is generated.
-
-## 5. Produce one authoritative Office source
-
-Maintain one canonical builder after requirements stabilize. Generate the clean external DOCX or PPTX from the traceable working version; do not create or patch a PDF independently.
-
-Before release, verify that the Office source contains all required claims and critical glyphs, excludes private or internal-only text, and matches the ledger. Then explicitly invoke `$office-native-release` with the authoritative source and release spec.
+Stop when the approved baseline is ambiguous, a headline claim lacks traceable
+support, privacy-sensitive content is unresolved, required source figures are
+missing, or the request expands into a full manuscript or presentation narrative.
 
 ## Completion criterion
 
 This skill is complete when:
 
-1. the editorial contract and immutable source hashes are recorded
-2. every consequential claim has evidence, type, permitted wording, and limitation
-3. the narrative is audience-centered and excludes unrelated material
-4. figures and captions remain traceable to authoritative sources
-5. one clean authoritative DOCX or PPTX is produced reproducibly
-6. release responsibility is handed to `office-native-release` without an independently edited PDF
+1. editorial contract and protected sources are explicit
+2. consequential claims have evidence, wording, and limitations
+3. the narrative serves the audience and excludes unrelated material
+4. figures and captions are traceable
+5. one clean authoritative Office source is reproducible
+6. native release responsibility is handed off without independent PDF edits

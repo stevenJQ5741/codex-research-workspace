@@ -46,7 +46,10 @@ function Get-ComInfo {
 }
 
 function Get-PopplerInfo {
-    $candidate = Join-Path $HOME '.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin\pdftoppm.exe'
+    $userProfile = [System.Environment]::GetFolderPath(
+        [System.Environment+SpecialFolder]::UserProfile
+    )
+    $candidate = Join-Path $userProfile '.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin\pdftoppm.exe'
     if (Test-Path -LiteralPath $candidate) {
         $path = $candidate
     }
@@ -65,6 +68,12 @@ function Get-PopplerInfo {
     }
 }
 
+$defaultPrinter = $null
+$windowsProfilePath = 'HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Windows'
+if (Test-Path -LiteralPath $windowsProfilePath) {
+    $defaultPrinter = (Get-ItemProperty -LiteralPath $windowsProfilePath -ErrorAction SilentlyContinue).Device
+}
+
 $profile = [ordered]@{
     generated_at_utc = [DateTime]::UtcNow.ToString('o')
     platform = [ordered]@{
@@ -76,16 +85,20 @@ $profile = [ordered]@{
     powerpoint = Get-AppInfo -Executable 'POWERPNT.EXE'
     libreoffice = Get-AppInfo -Executable 'soffice.exe'
     com = [ordered]@{
+        registration_check_only = $true
         word = Get-ComInfo -ProgId 'Word.Application'
         powerpoint = Get-ComInfo -ProgId 'PowerPoint.Application'
     }
+    default_printer = $defaultPrinter
     poppler = Get-PopplerInfo
     release_policy = [ordered]@{
         authoritative_exporter = 'Microsoft Office COM'
+        export_method = 'ExportAsFixedFormat'
         pdf_rasterizer = 'Poppler pdftoppm'
         libreoffice_primary_release_renderer = $false
         structural_layer_required = $true
         visual_layer_required = $true
+        deterministic_smoke_test_required_after_environment_change = $true
     }
 }
 

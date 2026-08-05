@@ -1,46 +1,30 @@
-﻿---
+---
 name: skill-name
-description: State what the skill does and the concrete situations that should trigger it.
+description: State what the Skill does, concrete triggers, and the nearest boundary or exclusion.
 ---
 
 # Skill Title
 
-## Purpose
+## Procedure
 
-State what this skill is for.
+1. Load only the required reusable rules or project brief.
+2. Define the authorized inputs, outputs, protected content, and evidence state.
+3. Perform the smallest reproducible workflow that satisfies the request.
+4. Validate affected outputs and record unresolved risks.
 
-## Required rules
+## Stop conditions
 
-Read only the smallest relevant rule files.
-
-## Process
-
-### 1. Step one
-
-Define action and completion condition.
-
-### 2. Step two
-
-Define action and completion condition.
-
-### 3. Step three
-
-Define action and completion condition.
+Stop when required evidence is missing, the authoritative source is ambiguous,
+validation fails, or the next action exceeds authorization.
 
 ## Completion criterion
 
 This skill is complete when:
 
-1. criterion one
-2. criterion two
-3. criterion three
-4. the final response includes a Skill usage receipt
+1. inputs, scope, and evidence state are explicit
+2. the requested output is produced reproducibly
+3. affected validation passes
+4. unresolved risks and next action are visible
 
-## Token policy
-
-Do not load unrelated rules, project briefs, or historical notes.
-
-## Invocation metadata
-
-Set `policy.allow_implicit_invocation: true` in `agents/openai.yaml`.
-Automatic discovery does not bypass the repository invocation gate or user authorization.
+Maintain matching `agents/openai.yaml` metadata with
+`policy.allow_implicit_invocation: true`.

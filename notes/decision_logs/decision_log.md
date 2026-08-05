@@ -52,6 +52,9 @@ Future Codex sessions should begin by reading only `AGENTS.md`, `README.md`, and
 
 ## 2026-07-02 - Research skills system
 
+Status:
+Superseded by the 2026-07-14 integration decision and ADR 0002.
+
 Decision:
 Add a research-oriented skills system under `skills/`, using mostly user-invoked skills to reduce context load.
 
@@ -62,6 +65,9 @@ Impact:
 Future Codex sessions should use `skills/router/ask-jiang/SKILL.md` to select the smallest relevant workflow, then load only the necessary skill and rule files.
 
 ## 2026-07-14 - Parallel V2 Skill pilot
+
+Status:
+Superseded by the later 2026-07-14 integration decision and ADR 0002.
 
 Decision:
 Create V2 Skill drafts under `skills_v2/` without replacing V1, and add a compact Skill usage receipt to final responses.
@@ -107,6 +113,9 @@ Future presentation work installs `presentation-review` from this repository and
 
 ## 2026-07-27 - Use rolling timestamped default branches
 
+Status:
+Extended by ADR 0004 with half-year snapshot and pruning safeguards.
+
 Decision:
 Name each upload branch from its first successful PushEvent time in JST using `agent/YYYYMMDD-HHmm-topic`. After validation, make the newest upload branch the GitHub default and retain the previous default as a historical version.
 
@@ -115,3 +124,21 @@ The user wants the repository landing state to represent the latest uploaded pro
 
 Impact:
 Future publish workflows create and push a new branch, rename it from the recorded PushEvent, validate it, promote it to default, synchronize `origin/HEAD`, and preserve older timestamped branches. Pull requests remain optional review artifacts rather than the promotion mechanism.
+
+## 2026-08-04 - Shift from architecture growth to maintenance evaluation
+
+Decision:
+Keep the canonical 16-Skill inventory while reducing duplicated instructions,
+separating project briefs from reusable rules, standardizing repository
+terminology, and governing remote branches through half-year snapshots and
+approval-gated pruning.
+
+Reason:
+The repository had enough workflow coverage; the larger risk was overlapping
+responsibility, duplicated policy, project-specific leakage, and maintenance
+drift.
+
+Impact:
+Future changes should respond to real usage evidence. New Skills or rules require
+a demonstrated gap, project facts belong in `docs/project_briefs/`, and branch
+maintenance follows ADR 0004.

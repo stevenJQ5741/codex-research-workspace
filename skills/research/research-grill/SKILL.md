@@ -1,39 +1,36 @@
 ---
 name: research-grill
-description: Clarify high-impact research, experiment, analysis, or manuscript decisions by resolving hidden assumptions from available evidence before asking concise blocking questions. Use automatically when the intended claim, model boundary, data sufficiency, or validation standard is unclear.
+description: Resolve hidden assumptions in a consequential research, experiment, analysis, or manuscript decision after the workflow is known. Use when the intended claim, model boundary, data sufficiency, or validation standard is unclear; do not use merely to choose among Skills.
 ---
 
 # Research Grill
 
-## Process
+## Procedure
 
-### 1. Define the decision
+1. State the deliverable, scientific decision, audience, files in scope, and
+   protected content.
+2. Inspect available sources, data, scripts, figures, plans, and prior decisions
+   before asking questions.
+3. Classify critical assumptions as confirmed, inferred, provisional, missing,
+   or contradictory, including units, sample identity, preprocessing, model
+   parameters, claim strength, and validation data.
+4. Ask no more than three blocking questions at once. State the consequence and a
+   recommended default only when different answers materially change the work.
+5. Produce an execution brief with goal, inputs, exclusions, assumptions, risks,
+   validation gates, and first action.
 
-State the target output, audience, scientific decision, files in scope, and what must not change.
+## Stop conditions
 
-### 2. Inspect before asking
-
-Search available manuscripts, data, scripts, figures, plans, and prior decisions for answers. Do not ask for information that is already recoverable.
-
-### 3. Build an assumption register
-
-Classify each critical item as confirmed, inferred, provisional, missing, or contradictory. Include units, sample identity, preprocessing, model parameters, causal claims, and validation data where relevant.
-
-### 4. Ask only blocking questions
-
-Ask no more than three concise questions at once, and only when different answers would materially change the work. State the consequence and recommended default.
-
-### 5. Produce an execution brief
-
-Record goal, inputs, exclusions, confirmed facts, assumptions, unresolved risks, validation gates, and first action.
+Stop before execution when a missing answer changes the scientific result,
+validation standard, protected evidence, or authorized scope. Do not ask a
+question whose answer is recoverable from the available files.
 
 ## Completion criterion
 
 This skill is complete when:
 
 1. the decision and deliverable are explicit
-2. available evidence has been inspected before questioning
+2. available evidence is inspected before questioning
 3. critical assumptions have status labels
 4. only genuinely blocking questions remain
-5. the execution brief contains measurable validation gates
-6. the response includes a Skill usage receipt
+5. the execution brief has measurable validation gates

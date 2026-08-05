@@ -2,36 +2,30 @@
 
 ## Purpose
 
-Rules for moving heat-source models, surface reheating, feed-rate effects, and ILSS-related thermal discussion.
+Provide reusable rules for moving heat sources, contact heating, reheating,
+parameter sensitivity, and links between calculated temperature and mechanical
+behavior. Store project geometry, temperatures, speeds, and fitted parameters in
+a project brief.
 
-## Known working context
+## Rules
 
-- Spherical metal indenter radius: approximately 10 mm.
-- Head temperature: approximately 260°C.
-- Specimen or bed temperature: approximately 80°C.
-- Feed rates include 100, 300, 700, 1000, and 2000 mm/min.
-- Indentation displacement: approximately 0.15 mm.
-- Thermal contact coefficient sensitivity has been considered around 4000, 5000, and 6000 W/(m²·K).
-- Differences among these h_c values are generally only several degrees Celsius.
-- Feed rates not higher than 1000 mm/min can bring the calculated surface temperature into a high-softening or partial-melting range within the model assumptions.
-
-## Core rules
-
-1. State that calculated temperature depends on model assumptions.
-2. Do not present calculated temperature as directly measured temperature.
-3. Emphasize trends more than exact absolute values.
-4. Lower feed rate increases contact time and therefore increases surface temperature.
-5. Treat h_c as a sensitivity parameter, not as an exact fixed truth.
-6. Link calculated temperature to ILSS improvement cautiously.
+1. Identify geometry, initial and boundary conditions, contact time, material
+   properties, and the provenance of every parameter.
+2. State model assumptions before calculation or interpretation.
+3. Describe calculated temperature as a model result, never as a measurement.
+4. Check units, limiting behavior, time scales, and energy balance where
+   applicable.
+5. Treat uncertain coefficients as sensitivity variables rather than exact truths.
+6. Report the tested range before describing a parameter as influential or
+   relatively insensitive.
+7. Emphasize supported trends over unsupported precision.
+8. Link thermal results to mechanical behavior as consistency or a possible
+   mechanism unless independent evidence establishes causation.
 
 ## Preferred wording
 
-> Within the assumptions of the moving heat-source model, the calculated surface temperature reached the high-softening or partial-melting range when the feed rate was not higher than 1000 mm/min. The sensitivity analysis for h_c = 4000-6000 W/(m²·K) produced only several degrees of difference, indicating that the qualitative temperature trend is relatively insensitive to this parameter within the examined range.
+Use phrases such as `within the assumptions of the model`, `supports the
+possibility`, `is consistent with`, and `within the examined parameter range`.
 
-## Avoid
-
-- measured surface temperature
-- proved melting
-- h_c has no effect
-- exact prediction
-- ILSS improvement is solely caused by melting
+Avoid `measured temperature`, `proved melting`, `has no effect`, `exact
+prediction`, or a single-cause explanation without direct evidence.

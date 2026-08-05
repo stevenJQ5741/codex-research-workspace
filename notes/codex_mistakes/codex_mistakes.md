@@ -38,3 +38,15 @@ Keeping SKILL.md files in a Git repository does not by itself make them discover
 
 Correction:
 Treat the repository as the source of truth, run scripts/install_skills.ps1 after clone or pull, and restart Codex. Never overwrite an unmarked personal Skill during installation.
+
+## Mixing Project Knowledge into Reusable Workflows
+
+Problem:
+Project filenames, experimental settings, event identifiers, and one-project
+lessons can enter universal Skills or reusable professional rules.
+
+Correction:
+Keep only triggers, operational steps, stop conditions, and completion criteria
+in Skills. Put reusable professional constraints in `docs/rules/` and named
+project facts in `docs/project_briefs/`. Remove private identifiers from the
+repository.

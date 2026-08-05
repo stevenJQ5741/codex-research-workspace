@@ -7,6 +7,9 @@ param(
 
     [string]$ExportLog,
 
+    [ValidateRange(10, 1800)]
+    [int]$TimeoutSeconds = 90,
+
     [switch]$SkipExport,
 
     [switch]$OverwritePdf
@@ -29,7 +32,10 @@ function Find-CodexPython {
     if ($env:CODEX_PYTHON -and (Test-Path -LiteralPath $env:CODEX_PYTHON)) {
         return (Resolve-Path -LiteralPath $env:CODEX_PYTHON).Path
     }
-    $candidate = Join-Path $HOME '.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
+    $userProfile = [System.Environment]::GetFolderPath(
+        [System.Environment+SpecialFolder]::UserProfile
+    )
+    $candidate = Join-Path $userProfile '.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
     if (Test-Path -LiteralPath $candidate) {
         return $candidate
     }
@@ -66,6 +72,7 @@ if (-not $SkipExport) {
     $exportParameters = @{
         InputPath = $sourcePath
         OutputPdf = $pdfPath
+        TimeoutSeconds = $TimeoutSeconds
     }
     if ($ExportLog) {
         $exportParameters.LogPath = Resolve-SpecPath -Base $specBase -Value $ExportLog
@@ -73,7 +80,11 @@ if (-not $SkipExport) {
     if ($OverwritePdf) {
         $exportParameters.Overwrite = $true
     }
-    & (Join-Path $scriptDirectory 'export_office_pdf.ps1') @exportParameters
+    $exportJson = & (Join-Path $scriptDirectory 'export_office_pdf.ps1') @exportParameters
+    $exportResult = $exportJson | ConvertFrom-Json
+    if (-not $exportResult.success -or $exportResult.release_status -ne 'EXPORTED') {
+        throw 'Native Office export did not return an explicit EXPORTED result.'
+    }
 }
 elseif (-not (Test-Path -LiteralPath $pdfPath)) {
     throw "SkipExport was requested but the PDF does not exist: $pdfPath"
@@ -90,6 +101,8 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 [ordered]@{
+    release_status = 'VISUAL_REVIEW_REQUIRED'
+    release_ready = $false
     structural_and_render_checks_passed = $true
     office_source = $sourcePath
     pdf = $pdfPath
@@ -97,3 +110,5 @@ if ($LASTEXITCODE -ne 0) {
     render_directory = $renderPath
     visual_inspection_pending = $true
 } | ConvertTo-Json -Depth 5
+
+exit 2

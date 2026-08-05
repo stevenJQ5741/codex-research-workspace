@@ -1,43 +1,38 @@
 ---
 name: claim-evidence-audit
-description: Map scientific claims to experimental data, calculations, models, literature, assumptions, and limitations, then calibrate permitted wording. Use automatically before conclusions, mechanism claims, fitted-component interpretation, or decisions about whether evidence supports correlation or causation.
+description: Map consequential scientific claims to observations, calculations, models, literature, assumptions, contradictions, and limitations, then set the strongest permitted wording. Use for novelty, mechanism, causality, fitted-component, abstract, or conclusion claims; do not use as a full manuscript language or readiness review.
 ---
 
 # Claim Evidence Audit
 
-## Process
+## Procedure
 
-### 1. Extract central claims
+1. Freeze the artifact version and extract claims that affect novelty,
+   mechanism, causality, or the main conclusion.
+2. Classify each claim as direct observation, derived calculation,
+   model-dependent estimate, literature-supported interpretation, hypothesis, or
+   speculation.
+3. Record the source location, value or pattern, assumptions, sample size,
+   uncertainty, limitations, and contradictory evidence.
+4. Assign `supported`, `supported with qualification`, `provisional`,
+   `unsupported`, or `contradicted`.
+5. Match wording strength to support; distinguish association, mechanism, and
+   causal validation.
+6. Revise wording, add a limitation, request validation, or remove the claim.
+   Preserve unresolved gaps in the ledger.
 
-Collect claims from the abstract, results, discussion, conclusion, captions, and graphical summary. Focus on claims that affect novelty or mechanism.
+## Stop conditions
 
-### 2. Classify each claim
-
-Use one evidence class: direct observation, derived calculation, model-dependent estimate, literature-supported interpretation, hypothesis, or speculation.
-
-### 3. Link evidence
-
-Record source artifact, location, value or pattern, assumptions, sample size, uncertainty, and contradictory evidence.
-
-### 4. Assign support level
-
-Rate each claim as supported, supported with qualification, provisional, unsupported, or contradicted.
-
-### 5. Calibrate language
-
-Match wording to support. Distinguish association from mechanism and mechanism from causal validation. A three-point, three-parameter fit may support decomposition but not strong regression inference.
-
-### 6. Resolve or expose gaps
-
-Revise wording, add a limitation, request validation, or remove the claim. Never hide missing evidence behind polished prose.
+Stop before approving a claim when its source cannot be located, evidence classes
+are mixed, assumptions or sample identity are unknown, contradictory evidence is
+unresolved, or polished wording would outrun support.
 
 ## Completion criterion
 
 This skill is complete when:
 
-1. every central claim has an evidence class and source
-2. assumptions, sample size, and contradictions are visible
+1. every consequential claim has an evidence class and source
+2. assumptions, sample size, uncertainty, limitations, and contradictions are visible
 3. support level and wording strength agree
 4. unsupported causal language is removed or qualified
 5. unresolved evidence gaps are listed
-6. the response includes a Skill usage receipt

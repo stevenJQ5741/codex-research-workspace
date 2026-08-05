@@ -71,9 +71,43 @@ The controlled vocabulary used by the user and Codex to reduce verbosity and amb
 
 A compact mapping from a scientific claim or derived value to its source, evidence class, assumptions, limitations, and permitted wording.
 
+### Authoritative source
+
+The exact artifact or repository state from which work proceeds. Identify it by
+path or ref and, when mutation or release matters, by hash. Prefer this term over
+the less precise `source of truth`.
+
+### Baseline
+
+An immutable reference state used for comparison. Record enough identity to
+reproduce it: a file hash, commit, calculation inputs and expected value, or
+another explicit provenance record. A baseline is not automatically a release
+candidate.
+
 ### Release candidate
 
-The exact manuscript, figure, table, workbook, or PDF version currently being checked for delivery. It must be identified explicitly before QA.
+The exact artifact explicitly designated for intended final delivery and still
+subject to final validation. A working candidate or validation baseline must not
+be called a release candidate.
+
+### Validation profile
+
+A named contract that defines the checks, evidence, scope, and stop conditions
+for a validation run. Passing one profile does not imply that a broader release
+profile passed.
+
+### Snapshot
+
+An immutable, annotated Git tag that records a defined repository checkpoint,
+such as `snapshot/2026-H1`. A snapshot supports reachability and recovery; it is
+not a working branch.
+
+### Archive
+
+Preserved inactive history or evidence removed from the active workflow. For a
+branch with unique commits, use an archive tag or an explicit abandonment record
+before branch deletion. Archived content remains recoverable but is not active
+policy.
 
 ### Skill usage receipt
 

@@ -1,46 +1,40 @@
 ---
 name: artifact-qa
-description: Verify research figures, tables, spreadsheets, DOCX, and PDF artifacts structurally, numerically, and visually before release. Use automatically after generating or revising files when rendering, pagination, labels, image quality, numbering, formulas, or cross-file consistency can fail. For final native Word/PowerPoint-to-PDF pair release on Windows, use office-native-release instead.
+description: Verify figures, tables, spreadsheets, DOCX, and PDF artifacts structurally, numerically, and visually after generation or revision. Use when layout, labels, formulas, rendering, numbering, or cross-file consistency can fail; use office-native-release instead for a declared final Word/PowerPoint and PDF pair on Windows.
 ---
 
 # Artifact QA
 
-## Process
+## Procedure
 
-### 1. Define the release candidate
+1. Identify the exact candidate artifact, authoritative sources, expected format,
+   and selected validation scope. Do not guess from a `final` filename.
+2. Check file readability, required structure, references, numbering,
+   placeholders, and expected objects.
+3. Compare values, units, signs, formulas, axes, captions, and labels with
+   authoritative machine-readable outputs or source tables.
+4. Render the artifact and inspect every page or a justified bounded set for
+   clipping, overlap, blank pages, font substitution, image quality, caption
+   placement, and overflow.
+5. Check that figures and tables remain legible and evidence-safe at final size.
+6. Correct material defects and repeat all invalidated checks.
+7. Hand a declared final native DOCX/PPTX and PDF pair to
+   `office-native-release`.
 
-Identify the exact files and expected format. Do not review an obsolete version by filename guess.
+## Stop conditions
 
-### 2. Run structural checks
-
-Check that files open, required sections exist, tables and figures are present, numbering is continuous, links or references resolve, and placeholders are intentional.
-
-### 3. Run numerical checks
-
-Compare displayed values, units, signs, axis data, captions, and formulas with authoritative machine-readable outputs or source tables.
-
-### 4. Render and inspect
-
-Render DOCX or PDF pages and inspect all pages or a justified representative set. Check clipping, overlap, blank pages, font substitution, image resolution, caption placement, table overflow, and page balance.
-
-For final Windows-native DOCX/PPTX-to-PDF pair release, hand off to `office-native-release` rather than duplicating native export, pair consistency, and glyph-survival checks.
-
-### 5. Inspect figure communication
-
-Check legibility at final size, color and grayscale distinction, experimental-point conventions, fit-range limits, uncertainty depiction, and whether the visual implies more evidence than exists.
-
-### 6. Correct and re-render
-
-After material corrections, repeat affected checks. Do not claim visual completion from source-code inspection alone.
+Stop when the candidate identity is ambiguous, the source comparison is missing,
+the renderer fails, numerical disagreement is unexplained, visual inspection has
+not occurred after the latest material change, or final native Office release is
+required.
 
 ## Completion criterion
 
 This skill is complete when:
 
-1. the exact release candidate is identified
+1. candidate, sources, and validation scope are explicit
 2. structural and numerical checks pass
-3. rendered output has been visually inspected
-4. figures and tables remain defensible at final size
-5. placeholders and unresolved visual defects are explicit
+3. rendered output is visually inspected
+4. figures and tables are defensible at final size
+5. placeholders and unresolved defects are explicit
 6. corrected artifacts are rechecked
-7. the response includes a Skill usage receipt

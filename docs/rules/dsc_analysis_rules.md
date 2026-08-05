@@ -2,50 +2,29 @@
 
 ## Purpose
 
-Rules for DSC interpretation, baseline correction, and thermal-transition discussion.
+Provide reusable rules for DSC cycle selection, preprocessing, transition
+reporting, and cautious thermal interpretation. Store material-specific settings
+and expected ranges in a project brief.
 
-## Core rules
+## Rules
 
-1. Do not claim a sharp melting point unless the DSC curve clearly supports it.
-2. If the curve shows broad or weak endothermic behavior, use cautious language.
-3. State baseline correction assumptions.
-4. State smoothing assumptions.
-5. Do not overinterpret noisy curves.
-6. Compare first heating, cooling, and second heating separately.
-7. Consider sample mass, atmosphere, cooling rate, and thermal history.
-8. Treat polymer identity cautiously unless confirmed.
+1. Identify the sample, cycle, rate, atmosphere, mass, temperature range, and
+   heat-flow direction.
+2. Report first heating, cooling, and second heating separately.
+3. State baseline, smoothing, normalization, and peak-selection assumptions.
+4. Do not overinterpret noise or assign polymer identity without evidence.
+5. Do not report a sharp melting point unless the signal supports it.
+6. For broad or weak signals, use qualified terms such as broad endothermic
+   behavior, high-softening range, partial-melting range, or weak
+   melting-related signal.
+7. Consider thermal history, sample mass, atmosphere, and cooling rate when
+   comparing transitions.
+8. Preserve the distinction between observed features and their interpretation.
 
 ## Preferred wording
 
-Use:
+> The broad endothermic response is consistent with a high-softening or
+> partial-melting range rather than a well-resolved crystalline melting peak.
 
-- broad endothermic behavior
-- high-softening temperature range
-- partial-melting temperature range
-- weak melting-related signal
-- low-crystallinity or quasi-amorphous behavior
-
-Avoid unsupported:
-
-- exact melting point
-- complete melting
-- confirmed crystalline melting
-
-## Example
-
-Preferred:
-
-> The broad endothermic behavior around 200-220°C suggests that the material entered a high-softening or partial-melting temperature range, rather than exhibiting a sharp crystalline melting peak.
-
-Avoid:
-
-> The melting point was 220°C.
-
-## Markforged-type CF-reinforced PA context
-
-Known working interpretation:
-
-- The matrix may show Tg or broad endothermic behavior rather than a clear melting peak.
-- Slow cooling and increased sample mass may help reveal crystallization or melting behavior.
-- Processing temperature should be discussed together with DSC evidence.
-- Do not assume standard crystalline Nylon behavior without evidence.
+Avoid unsupported statements such as complete melting, confirmed crystalline
+melting, or an exact melting point.

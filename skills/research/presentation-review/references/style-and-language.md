@@ -1,19 +1,20 @@
 # Style, Evidence, and Language Baseline
 
-## Stable visual identity
+## Template-derived visual identity
 
-Use these as defaults when the supplied template and current user-approved deck agree:
+Derive colors, typography, institutional identity, page chrome, and spacing from
+the current user-approved deck or supplied template. Do not encode one project's
+palette, logo position, or page geometry as a universal rule.
 
-- white academic background
-- green section label or section emphasis
-- black or dark-gray message title
-- red only for the main warning, limitation, or takeaway
-- consistent top-right institutional identity and page numbering
-- aligned content blocks with strong whitespace and no decorative dashboard styling
-- one dominant message per slide
-- visible citation near sourced literature figures
+Across templates:
 
-Do not copy these tokens mechanically into a deck with a different institutional template. Preserve the active template unless redesign is authorized.
+- preserve consistent alignment and usable whitespace
+- keep one dominant message per slide
+- keep citations readable near sourced literature figures
+- reserve strong emphasis for the main warning, limitation, or takeaway
+- avoid decorative complexity that competes with evidence
+
+Preserve the active template unless redesign is authorized.
 
 ## Slide-title rule
 
