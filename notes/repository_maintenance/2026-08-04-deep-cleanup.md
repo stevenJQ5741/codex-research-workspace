@@ -12,7 +12,7 @@ push, remote branch deletion, or remote tag creation was authorized.
 | Metric | Before |
 | --- | ---: |
 | Skills | 16 |
-| active `docs/rules/*.md` files | 10 |
+| `docs/rules/*.md` files | 11 |
 | remote branches | 3 |
 | remote tags | 0 |
 
@@ -77,7 +77,7 @@ forward-validation tasks.
 | Metric | Before | After |
 | --- | ---: | ---: |
 | Skills | 16 | 16 |
-| active `docs/rules/*.md` files | 10 | 7 |
+| `docs/rules/*.md` files | 11 | 7 |
 | total `SKILL.md` lines | 630 | 512 |
 | root `AGENTS.md` lines | 150 | 57 |
 | remote branches | 3 | 3 |
