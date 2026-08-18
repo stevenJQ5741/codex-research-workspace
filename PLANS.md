@@ -26,8 +26,9 @@ repository compact, non-duplicative, and stable across computers.
 - The native release path passed repeat-render validation on one real 8-page
   DOCX and one real 23-slide PPTX without modifying either source.
 - The validated repository is published on the rolling default branch
-  `agent/20260805-1634-repository-stability`; the previous default remains
-  preserved and `snapshot/2026-H1` is published as an annotated checkpoint.
+  `agent/20260818-2121-presentation-qa-invariants`; the previous default
+  `agent/20260805-1634-repository-stability` remains preserved and
+  `snapshot/2026-H1` is published as an annotated checkpoint.
 
 ## Immediate tasks
 
