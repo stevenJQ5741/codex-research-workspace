@@ -6,9 +6,11 @@
 2. Profile selection
 3. Change-driven invalidation
 4. Audit commands
-5. Reading the report
-6. Stop rules
-7. Native release boundary
+5. Visual-scale contract
+6. Presentation invariants
+7. Reading the report
+8. Stop rules
+9. Native release boundary
 
 ## 1. Validation objective
 
@@ -155,7 +157,80 @@ python scripts/audit_pptx_revision.py candidate.pptx `
 
 A passing preflight does not release the file. Continue with `$office-native-release`.
 
-## 5. Reading the report
+### Presentation invariant audit
+
+Use a task-specific JSON spec only when the requested change can invalidate
+numbering, repeated page chrome, Office Math, forbidden visible text, or image
+resolution. Keep project filenames, coordinates, slide counts, and thresholds in
+the task spec rather than the reusable Skill.
+
+```powershell
+python scripts/audit_pptx_invariants.py candidate.pptx `
+  --spec work/pptx_validation_spec.json `
+  --output work/pptx_invariants.json
+```
+
+This audit complements `audit_pptx_revision.py`: the revision audit proves what
+changed, while the invariant audit proves whether the resulting object state
+meets the declared contract.
+
+## 5. Visual-scale contract
+
+Use the smallest view that can prove the question:
+
+| View | Use | Must not prove |
+| --- | --- | --- |
+| overview or montage | story order, rhythm, density, obvious outliers | crop completeness, small text, equation spacing, page-chrome uniformity |
+| full-size slide | layout, legibility, overlap, figure-to-text balance | exact object identity, editability, or cross-slide geometry |
+| local ROI | school logo; equation region; chart axes, ticks, or legends | unrelated slide regions or aesthetic approval |
+| package or geometry audit | sequence, object type, Office Math, repeated geometry, protected scope | semantic crop completeness or user taste |
+
+Token-aware planning rules:
+
+1. Build one overview for the bounded review scope, not one per retry.
+2. Inspect full-size renders only for changed, dependent, or explicitly protected
+   slides whose state must be reconfirmed.
+3. Generate an ROI only when one of the three permitted regions changed, failed
+   an invariant, or remains unreadable at full size.
+4. Reuse prior visual evidence only for an exact recorded hash and only when the
+   audit marks it reusable.
+5. Prefer numeric geometry, object-type, sequence, and hash checks over repeated
+   image inspection when they answer the question directly.
+
+Semantic crop completeness cannot be certified from package geometry alone. A
+changed chart crop still requires a full-size view and, when its axes, ticks, or
+legend are at risk, the permitted chart ROI.
+
+## 6. Presentation invariants
+
+Declare only invariants that the task actually requires. Common checks include:
+
+- exactly one page number per slide with a complete `1/N` through `N/N` sequence
+- identical page-number geometry within a configurable point tolerance
+- exactly one selected school-logo object per slide and identical declared
+  geometry; relative enlargement of several pre-existing size systems is not
+  unification
+- minimum total or per-slide Office Math counts for equation-bearing slides
+- forbidden visible-text patterns such as a language that must not remain
+- image effective-resolution warnings at the displayed size
+- warnings for exact duplicate text placed at nearly identical geometry
+
+Repeated objects should be selected by semantic name, description, or stable
+task-specific selectors. Positional heuristics are a fallback and must be narrow
+enough to avoid selecting unrelated figures.
+
+Use these honest status labels:
+
+- `structural checks passed`
+- `objective visual QA passed; aesthetic review pending`
+- `user-approved baseline`
+- `release candidate`
+- `native Office release passed`
+
+Do not claim `unified`, `final`, or `matches the user's style` from an overview,
+package audit, or renderer success alone.
+
+## 7. Reading the report
 
 Read these fields first:
 
@@ -172,7 +247,7 @@ Read these fields first:
 
 Treat `all_checks_pass: false` or a nonzero exit code as a stop.
 
-## 6. Stop rules
+## 8. Stop rules
 
 - Do not expand allowed slides or prefixes merely to obtain a pass.
 - Investigate every unexpected added, removed, or changed package part.
@@ -181,9 +256,13 @@ Treat `all_checks_pass: false` or a nonzero exit code as a stop.
 - Do not skip dependent slides that reference a changed shared object.
 - Do not run native Office release for `inventory`, `aesthetic-round`, `controlled-revision`, or `notes-only`.
 - Do not claim aesthetic acceptance from objective visual QA.
+- Do not use an overview as evidence for crop completeness, formula-region
+  legibility, or repeated-object uniformity.
+- Do not expand ROI generation beyond the school logo, equation regions, and
+  chart axes, ticks, or legends.
 - Record justified exceptions with the exact part, slide, reason, and approver.
 
-## 7. Native release boundary
+## 9. Native release boundary
 
 Use `$office-native-release` only for `release-candidate`.
 

@@ -19,34 +19,45 @@ description: Review or revise academic presentations for narrative, evidence rep
    authorize file revision.
 3. Freeze the authoritative source, SHA-256, output path, audience, talk time,
    protected slides and objects, mutation lane, exclusions, and validation
-   profile. Export native Google Slides to a fixed PPTX snapshot before package
-   comparison.
-4. Label consequential slide claims as observation, calculation, model,
-   literature, interpretation, assumption, or proposal. Stop on untraceable
-   high-impact claims.
+   profile. A user-edited candidate becomes the next baseline and must not be
+   silently replaced by an older file. Export native Google Slides to a fixed
+   PPTX snapshot before package comparison.
+4. Before bulk authoring, map each planned slide to its message, evidence,
+   consequential claim label, figure or equation provenance, and review risk.
+   Stop on untraceable high-impact claims or formulas without a defensible source.
 5. Check the deck story and one dominant takeaway per slide; choose evidence form
-   before layout.
-6. For aesthetic work, change one visual dimension or one to three representative
-   slides per round, preserve manual edits as the next baseline, and record
-   accepted, rejected, and pending preferences.
-7. Use the least invasive mutation method and preserve editable charts, tables,
-   media, equations, and notes unless the request authorizes conversion.
-8. Keep visible language concise and notes natural, aligned, and evidence-safe.
-9. Run `scripts/audit_pptx_revision.py` with the smallest profile that proves the
-   mutation: `inventory`, `aesthetic-round`, `controlled-revision`, or
-   `notes-only`. Explain every changed package part and re-run invalidated checks.
-10. For an explicitly declared final PPTX/PDF release candidate, complete the
-    package preflight and hand the exact PPTX, hashes, release spec, and remaining
-    status to `office-native-release`; do not duplicate native export or pair QA.
-11. Report authoritative input and output, hashes, changed and protected scope,
-    validation results, aesthetic status, risks, and next action.
+   before layout. For aesthetic work, change one visual dimension or one to three
+   representative slide archetypes per round, then propagate only an accepted
+   pattern.
+6. Use the least invasive mutation method and preserve editable charts, tables,
+   media, Office Math equations, and notes unless conversion is authorized. Give
+   repeated objects semantic names or stable selectors instead of identifying
+   them only by approximate position.
+7. Keep visible language concise and notes natural, aligned, and evidence-safe.
+8. Run `scripts/audit_pptx_revision.py` with the smallest profile that proves the
+   mutation. When numbering, repeated page chrome, Office Math, language, or
+   image resolution can fail, also run `scripts/audit_pptx_invariants.py` with a
+   task-specific spec.
+9. Apply the visual-scale contract in `references/qa-and-release.md`: overview
+   images assess narrative only; inspect affected slides at full size; create
+   local ROI views only for the school logo, equation regions, and chart axes,
+   ticks, or legends when those regions changed or remain uncertain.
+10. Report status precisely. Objective checks do not establish user aesthetic
+   approval, and no deck is `unified`, `final`, or `release-ready` while a named
+   invariant or required visual review remains incomplete.
+11. For an explicitly declared final PPTX/PDF release candidate, complete the
+   package preflight and hand the exact PPTX, hashes, release spec, and remaining
+   status to `office-native-release`; do not duplicate native export or pair QA.
+12. Report authoritative input and output, hashes, changed and protected scope,
+   validation results, aesthetic status, risks, and next action.
 
 ## Stop conditions
 
 Stop when source identity is ambiguous, revision is unauthorized, a high-impact
 claim lacks evidence, a package change exceeds the mutation lane, the baseline
 hash changes unexpectedly, user aesthetic approval is still pending but release
-is claimed, or native release is required but not delegated.
+is claimed, a required invariant or visual review is incomplete, or native
+release is required but not delegated.
 
 ## Completion criterion
 
@@ -55,7 +66,8 @@ This skill is complete when:
 1. mode, authoritative source, scope, exclusions, and validation profile are explicit
 2. review findings or authorized revisions are evidence-calibrated
 3. the latest user-approved source and editable content are preserved as required
-4. every package change is explained and invalidated checks are rerun
-5. affected slides or notes are inspected for the selected profile
-6. aesthetic status is user-approved or explicitly pending
-7. a final native release is handed to `office-native-release` with exact identity
+4. slide evidence and formula provenance are traceable where consequential
+5. every package change is explained and invalidated checks are rerun
+6. required invariants pass and affected slides are inspected at the right scale
+7. aesthetic status is user-approved or explicitly pending
+8. a final native release is handed to `office-native-release` with exact identity

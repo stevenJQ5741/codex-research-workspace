@@ -18,6 +18,9 @@ repository compact, non-duplicative, and stable across computers.
 - Native Office export is hardened around PowerShell-supervised
   `ExportAsFixedFormat`, a 90-second default hard timeout, deterministic repeat
   renders, and a fail-closed visual-review state.
+- Presentation review now separates overview, full-size, and narrowly permitted
+  ROI evidence, and uses task-specific PPTX invariants for numbering, repeated
+  page chrome, Office Math, visible language, and image resolution.
 - Half-year branch maintenance now has a deterministic dry-run gate that treats
   unknown activity as protected and cannot delete remote branches.
 - The native release path passed repeat-render validation on one real 8-page
@@ -35,6 +38,8 @@ repository compact, non-duplicative, and stable across computers.
 - [ ] Test clone, pull, Skill installation, and discovery on another computer.
 - [ ] Re-run native Office smoke tests after material Office, Windows, or Codex
       runtime changes.
+- [ ] Evaluate the presentation invariant and token-aware visual-review protocol
+      on an unrelated academic deck after its real-project regression tests pass.
 - [x] Validate the hardened native Office release path on a real long DOCX/PPTX
       pair after synthetic deterministic smoke tests pass.
 - [ ] Add or revise project briefs only when validated project evidence changes.

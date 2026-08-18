@@ -1,0 +1,35 @@
+{
+  "expected_slides": 1,
+  "page_numbers": {
+    "enabled": false,
+    "text_regex": "^(\\d+)\\s*/\\s*(\\d+)$",
+    "expected_start": 1,
+    "expected_total": 1,
+    "expected_per_slide": 1,
+    "same_geometry": true,
+    "tolerance_points": 0.5
+  },
+  "repeat_objects": [],
+  "office_math": {
+    "minimum_total": 0,
+    "minimum_by_slide": {}
+  },
+  "forbidden_visible_regex": [],
+  "image_quality": {
+    "warn_effective_ppi_below": 150
+  },
+  "duplicate_text_overlap": {
+    "warn": true,
+    "geometry_tolerance_points": 0.5
+  },
+  "visual_review": {
+    "overview_purpose": "narrative_only",
+    "full_size_slides": "changed_or_dependent",
+    "allowed_roi_types": [
+      "school_logo",
+      "equation_region",
+      "chart_axes_ticks_legend"
+    ],
+    "roi_trigger": "changed_failed_or_uncertain_only"
+  }
+}

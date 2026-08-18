@@ -58,7 +58,21 @@ Do not generate a large gallery that transfers design work back to the user.
 
 ### 4. Make comparison easy
 
-Provide before/after slide renders or a small comparison montage. Keep slide size and rendering conditions consistent. For subtle issues, show the full-size slide as well as the overview.
+Provide before/after slide renders or a small comparison montage. Keep slide size
+and rendering conditions consistent. Treat a montage as narrative and rhythm
+evidence only; it cannot prove crop completeness, small-text legibility, equation
+spacing, or repeated-object alignment.
+
+Inspect affected slides at full size. Generate a local ROI view only when the
+changed or uncertain region is one of:
+
+- the school logo
+- an equation region
+- chart axes, ticks, or legends
+
+Do not generate ROIs for unchanged regions or as a substitute for full-slide
+review. Prefer a deterministic geometry or package check when the question is
+object identity, sequence, editability, or cross-slide consistency.
 
 Run the `aesthetic-round` validation profile and render only the slides listed in `validation_plan.render_slides`. If a shared chart, media object, theme, layout, or master expands the reported scope, review every reported dependent slide. Do not run full native Office release during an aesthetic round.
 
@@ -100,6 +114,8 @@ Never use `polished`, `final design`, or `matches the user's style` solely becau
 - Reuse accepted slide archetypes instead of redesigning every page.
 - Propagate only confirmed patterns and keep each propagation reversible.
 - Batch mechanically equivalent changes after the representative slide is approved.
+- Use the overview once per bounded round, full-size renders only for impacted
+  slides, and ROIs only for the three permitted high-risk regions.
 - Use `inventory` once per authoritative baseline and `aesthetic-round` for each bounded visual iteration.
 - Reuse semantic, chart, media, note, and visual evidence only when the audit report marks it reusable for the recorded hashes.
 - Keep a compact accepted/rejected decision ledger rather than rereading the full conversation.
