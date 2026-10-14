@@ -11,9 +11,13 @@ description: Route Quan Jiang's task to the smallest effective combination of in
    artifact QA, presentation, Office release, email, repository change, or
    handoff.
 2. Identify available sources, scientific stakes, mutation risk, external
-   effects, missing inputs, and whether read-only work is sufficient.
+   effects, missing inputs, and whether read-only work is sufficient. Separate
+   requested scientific actions from terms inside translated or edited content.
 3. Select one primary and no more than two supporting Skills from the
-   responsibility matrix in `README.md`. Load only their required rules.
+   responsibility matrix in `README.md`. For consequential theory judgment,
+   route a theory stage through `theory-grounding` (S0/S1/S2) before numerical,
+   experimental, manuscript, or final claim-audit stages. Release the theory
+   stage context before loading later Skills. Load only required rules.
 4. Proceed when the match is clear and the request already authorizes the work.
    Ask once when workflows compete, a method changes the result, cost is
    substantial, or scope would expand.

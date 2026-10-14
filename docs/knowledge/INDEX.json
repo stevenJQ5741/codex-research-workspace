@@ -1,0 +1,164 @@
+{
+  "schema_version": "0.1",
+  "library_status": "pilot_unreviewed",
+  "records": [
+    {
+      "id": "MAT-MECH-001",
+      "path": "models/short_fiber_critical_length.md",
+      "title": "Critical fiber length and simplified interfacial load transfer",
+      "domains": [
+        "mechanics",
+        "composites",
+        "interfaces",
+        "natural_fibers"
+      ],
+      "keywords": [
+        "short fiber",
+        "short fibre",
+        "critical length",
+        "kelly tyson",
+        "shear lag",
+        "IFSS",
+        "短纤维",
+        "短纖維",
+        "临界长度",
+        "界面",
+        "载荷传递",
+        "荷重伝達",
+        "短繊維",
+        "剪滞"
+      ],
+      "epistemic_type": "theoretical_model",
+      "review_status": "candidate",
+      "assumptions_checklist": [
+        "fiber geometry",
+        "axial loading",
+        "definition and uniformity of interfacial shear stress",
+        "fiber strength",
+        "length and orientation distributions",
+        "matrix yielding and failure mode"
+      ],
+      "known_limitations": [
+        "Not a direct predictor of composite macroscopic strength",
+        "A measured apparent IFSS may not equal the theoretical interface parameter",
+        "Natural-fiber geometry and heterogeneous interfaces require additional checks"
+      ],
+      "sources": [
+        {
+          "title": "Kelly and Tyson (1965), Tensile properties of fibre-reinforced metals: Copper/tungsten and copper/molybdenum",
+          "url": "https://doi.org/10.1016/0022-5096(65)90035-9",
+          "bibliographic_metadata_checked": true,
+          "claim_in_source_checked": false
+        }
+      ]
+    },
+    {
+      "id": "MAT-THERM-001",
+      "path": "models/effective_thermal_conductivity.md",
+      "title": "Effective thermal conductivity and interphase/void sensitivity",
+      "domains": [
+        "thermal",
+        "composites",
+        "natural_fibers"
+      ],
+      "keywords": [
+        "thermal conductivity",
+        "Fourier",
+        "effective medium",
+        "RVE",
+        "interphase",
+        "porosity",
+        "heat transfer",
+        "导热",
+        "热导率",
+        "热传导",
+        "有效热导率",
+        "界面热阻",
+        "孔隙",
+        "熱伝導",
+        "熱伝導率"
+      ],
+      "epistemic_type": "theoretical_model",
+      "review_status": "candidate",
+      "assumptions_checklist": [
+        "steady/transient regime",
+        "geometry and boundary conditions",
+        "anisotropy and orientation",
+        "individual phase properties",
+        "void fraction",
+        "interphase/contact resistance",
+        "measurement vs model estimate"
+      ],
+      "known_limitations": [
+        "Mechanical IFSS is not interchangeable with thermal boundary resistance",
+        "Sensor-dependent apparent conductivity is not necessarily an intrinsic constant",
+        "Two-phase and three-phase models need distinct validation"
+      ],
+      "sources": [
+        {
+          "title": "Effective thermal conductivity of polymer composites: Theoretical models and simulation models (2018 review)",
+          "url": "https://doi.org/10.1016/j.ijheatmasstransfer.2017.09.067",
+          "bibliographic_metadata_checked": true,
+          "claim_in_source_checked": false
+        },
+        {
+          "title": "Interfacial thermal resistance in thermally conductive polymer composites: A review (2020)",
+          "url": "https://doi.org/10.1016/j.coco.2020.100518",
+          "bibliographic_metadata_checked": true,
+          "claim_in_source_checked": false
+        }
+      ]
+    },
+    {
+      "id": "MAT-DSC-001",
+      "path": "methods/dsc_signal_interpretation.md",
+      "title": "DSC observed signal versus thermal-transition interpretation",
+      "domains": [
+        "thermal",
+        "polymers",
+        "dsc",
+        "measurement"
+      ],
+      "keywords": [
+        "DSC",
+        "differential scanning calorimetry",
+        "glass transition",
+        "endotherm",
+        "melting",
+        "crystallization",
+        "heat flow",
+        "差示扫描量热",
+        "差示掃描熱量",
+        "热流",
+        "吸热峰",
+        "熔融峰",
+        "玻璃化转变",
+        "融解",
+        "熱分析"
+      ],
+      "epistemic_type": "theoretical_model",
+      "review_status": "candidate",
+      "assumptions_checklist": [
+        "sample and cycle identity",
+        "heating/cooling rate",
+        "heat-flow direction",
+        "baseline and preprocessing",
+        "thermal history",
+        "transition assignment evidence"
+      ],
+      "known_limitations": [
+        "A weak or broad endotherm does not prove complete melting",
+        "First and second heating are not interchangeable",
+        "Model-derived temperatures must not be called measured DSC transitions"
+      ],
+      "sources": [
+        {
+          "title": "ASTM D7426-08 — DSC procedure for determining Tg (historical version; applicability/current status must be confirmed)",
+          "url": "https://doi.org/10.1520/D7426-08",
+          "bibliographic_metadata_checked": true,
+          "claim_in_source_checked": false
+        }
+      ]
+    }
+  ]
+}

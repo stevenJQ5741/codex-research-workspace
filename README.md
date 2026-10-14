@@ -11,6 +11,7 @@ across computers.
 | `AGENTS.md` | compact operating entrypoint |
 | `PLANS.md` | current objectives and unresolved work |
 | `docs/rules/` | reusable professional and workflow rules |
+| `docs/knowledge/` | candidate scientific models, sources, assumptions, and limits |
 | `docs/project_briefs/` | project-specific facts, parameters, and boundaries |
 | `docs/shared_language/CONTEXT.md` | canonical terminology |
 | `docs/adr/` | durable architecture and policy decisions |
@@ -39,6 +40,7 @@ the task. Push only after explicit approval.
 | Skill | Primary responsibility | Boundary |
 | --- | --- | --- |
 | `ask-jiang` | select the smallest workflow | routes; does not resolve research assumptions |
+| `theory-grounding` | route S0/S1/S2 and check candidate theory applicability | theory stage; does not certify sources or replace domain analysis |
 | `research-grill` | resolve consequential ambiguity | clarifies; does not choose the Skill stack |
 | `shared-language` | control durable terms and symbols | terminology, not full artifact editing |
 | `analysis-feedback-loop` | reproducible calculations and figures | analysis, not manuscript orchestration |

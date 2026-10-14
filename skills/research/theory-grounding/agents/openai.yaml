@@ -1,0 +1,7 @@
+interface:
+  display_name: "Theory Grounding"
+  short_description: "Route S0/S1/S2 and check theory applicability before consequential research inference"
+  default_prompt: "Use $theory-grounding to classify the task, reuse a valid Theory Context when possible, or check candidate theories and their applicability before scientific inference."
+
+policy:
+  allow_implicit_invocation: true

@@ -41,6 +41,7 @@ by the task. Do not read all historical notes or all `docs/rules/` by default.
 | active task state | `PLANS.md` |
 | reusable professional rules | `docs/rules/` |
 | project-specific knowledge | `docs/project_briefs/` |
+| candidate scientific theories and model limits | `docs/knowledge/` |
 | durable terminology | `docs/shared_language/CONTEXT.md` |
 | hard-to-reverse decisions | `docs/adr/` |
 | historical decisions and sessions | `notes/` |
@@ -53,6 +54,10 @@ Do not duplicate a complete workflow or professional rule in this file.
 Use `skills/router/ask-jiang/SKILL.md` when routing is unclear. Select at most one
 primary and two supporting Skills. The Skill inventory and responsibility
 boundaries are in `README.md`.
+
+For consequential scientific inference, use `theory-grounding` at the relevant
+stage to distinguish S0 text work, S1 reviewed context reuse, and S2 theory
+preflight. Candidate knowledge is not verified scientific evidence.
 
 Automatic Skill discovery does not authorize deletion, external messages,
 commits, pushes, remote branch changes, or sensitive-data handling.

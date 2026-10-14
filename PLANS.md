@@ -8,7 +8,10 @@ repository compact, non-duplicative, and stable across computers.
 ## Current status
 
 - The repository uses a compact root entrypoint, reusable professional rules,
-  project briefs, canonical terminology, ADRs, and one canonical 16-Skill tree.
+  project briefs, canonical terminology, ADRs, and one canonical Skill tree.
+- The B theory layer is locally integrated as a 17th canonical Skill;
+  its three cards remain candidate knowledge, and automatic routing has not
+  passed a live Codex research-task trial.
 - Skill responsibilities were consolidated in August 2026 without adding a
   parallel version tree.
 - Rolling default branches remain active; half-year branch maintenance is
@@ -31,6 +34,11 @@ repository compact, non-duplicative, and stable across computers.
   `snapshot/2026-H1` is published as an annotated checkpoint.
 
 ## Immediate tasks
+
+- [ ] Run a 30-task controlled theory-routing trial, including at least 15
+      independently labeled S2 cases; require zero dangerous S0/S1 misses.
+- [ ] Review original passages, equations, conditions, and source status for
+      each candidate theory card before scientific promotion.
 
 - [ ] Evaluate automatic routing on real manuscript, analysis, Japanese-email,
       presentation, and Office-release tasks.
