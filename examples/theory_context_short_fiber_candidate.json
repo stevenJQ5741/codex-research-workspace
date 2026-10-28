@@ -1,0 +1,49 @@
+{
+  "schema_version": "0.2.2",
+  "example_only": true,
+  "project_id": "example-short-fiber-pbs",
+  "research_question": "短天然纤维/PBS复合材料中，纤维长度与界面载荷传递如何影响拉伸性能？",
+  "theory_cards": [
+    {
+      "id": "MAT-MECH-001",
+      "path": "models/short_fiber_critical_length.md",
+      "card_sha256": "2672e55186afc43d3a6f7a8f975a9899f8c8ced413e44fe2bab6980d3c0b85f6",
+      "index_record_sha256": "0eb2c26911f07a9b378654b5d681a21917d5e7168071768fd88a459bf1b5d47a",
+      "review_status": "candidate",
+      "source_claims_checked": false
+    }
+  ],
+  "material_system": "短天然纤维增强 PBS；纤维种类和处理状态待确定",
+  "model_assumptions": [
+    "以简化的轴向载荷传递模型作候选框架；模型适用性尚未判定",
+    "模型中的界面剪切应力参数不直接等同于微观试验所得表观 IFSS"
+  ],
+  "boundary_conditions": {
+    "loading": "单轴拉伸候选场景；纤维取向分布未测",
+    "temperature": "未指定",
+    "failure_mode": "未确认"
+  },
+  "parameters": {
+    "fiber_diameter": {"value": null, "unit": "um", "evidence": "missing"},
+    "fiber_length_distribution": {"value": null, "evidence": "missing"},
+    "fiber_strength": {"value": null, "evidence": "missing"},
+    "interface_parameter": {"value": null, "evidence": "definition unresolved"}
+  },
+  "applicability": {
+    "status": "unresolved",
+    "scope": "只作为短纤维载荷传递的待审候选理论",
+    "limitations": ["不能仅凭临界长度关系预测复合材料宏观拉伸强度", "天然纤维几何与界面异质性需核查"]
+  },
+  "conflicts": [],
+  "unresolved_issues": [
+    {"issue": "Kelly-Tyson 原文公式及参数条件尚未直接核验", "blocking": true},
+    {"issue": "纤维长度、取向、截面和失效模式数据缺失", "blocking": true}
+  ],
+  "generated_at": "2026-10-09T00:00:00+08:00",
+  "reviewed_at": null,
+  "reviewed_by": null,
+  "review_record": null,
+  "reuse_conditions": ["仅在材料、模型、边界条件和参数定义均未变化且完成适用性复核后复用"],
+  "invalidation_conditions": ["材料或模型假设变化", "边界条件或关键参数变化", "卡片或索引记录哈希及证据状态变化", "出现矛盾证据"],
+  "knowledge_base_commit": null
+}

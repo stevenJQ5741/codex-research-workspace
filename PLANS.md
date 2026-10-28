@@ -24,6 +24,10 @@ repository compact, non-duplicative, and stable across computers.
 - Presentation review now separates overview, full-size, and narrowly permitted
   ROI evidence, and uses task-specific PPTX invariants for numbering, repeated
   page chrome, Office Math, visible language, and image resolution.
+- Deterministic routing fixtures and image-quality coverage tests are present;
+  fixture success is not the independent 30-task field trial or source review.
+- Project-local discovery has a non-overwriting setup/check helper; operation
+  on a second physical computer and actual implicit activation remain unverified.
 - Half-year branch maintenance now has a deterministic dry-run gate that treats
   unknown activity as protected and cannot delete remote branches.
 - The native release path passed repeat-render validation on one real 8-page

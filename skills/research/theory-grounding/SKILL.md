@@ -15,7 +15,7 @@ This Skill performs the **theory stage** before consequential scientific inferen
 2. The router checks the exact query hash and the structured assessment, then applies conservative action-level guards only to **instruction segments**, not the supplied text being translated or edited. Quotation marks are not required to identify supplied content. A broad `routine`, `analysis` or `manuscript` tag, or `--requires-theory no`, cannot suppress detected scientific risk. Mixed editing and recalculation are scientific tasks. If an intent is missing or invalid, only a clearly bounded transformation may fall back to S0; other tasks go to S2 with uncertainty reported. A pure-transform assessment with a new instruction after supplied content goes to S2 for review. The guard still cannot understand every language expression or correct every wrong agent assessment.
 3. **S0:** routine email, translation, formatting, or clearly bounded non-inferential operations need no theory preflight. Do not open `docs/knowledge/`.
 4. **S1:** reuse only after a documented Context review and a fresh comparison of this exact task with project/question, material, model assumptions, boundary conditions, parameters and contrary evidence. Record the current task's query hash, checker, time and evidence references in `current_scope.scope_review`; its check must be no older than 30 minutes at preflight. Set `evidence_checked=true` only after actually inspecting current evidence; the timestamp alone is insufficient. Check each selected card hash, its complete canonical `INDEX.json` record hash, and source-review state without a full candidate search. A missing, changed, conflicted or unreviewed context, or an unsubstantiated or expired scope check, routes a theory-dependent task to S2. A `candidate` may support a limited working hypothesis, never verified scientific authority. A high-impact claim with unchecked decisive source claims goes to S2.
-5. **S2:** locate `docs/knowledge/INDEX.json` in the canonical checkout. `scripts/theory_preflight.py` provides deterministic candidates and an unreviewed applicability checklist. The acting scientific reviewer completes G1-G5 below. No match means a coverage gap, never proof of novelty or absence of theory.
+5. **S2:** locate `docs/knowledge/INDEX.json` in the canonical checkout. `scripts/theory_preflight.py` provides deterministic candidates and an unreviewed applicability checklist. When checking original-source availability or review status, consult `docs/knowledge/evidence/README.md` for relevant review receipts; a receipt does not promote a candidate. The acting scientific reviewer completes G1-G5 below. No match means a coverage gap, never proof of novelty or absence of theory.
 
 The CLI supports `--intent-file`, `--manual-trigger`, `--theory-context` and `--scope-file`. Use `--output` only when an output file was explicitly requested. If the canonical knowledge checkout is unavailable, report `knowledge_unavailable` and do not claim a completed audit.
 
@@ -44,3 +44,22 @@ Invalidate a context when material/model/boundary conditions or parameter defini
 Keep at most one primary and two supporting Skills **in each stage**. `ask-jiang` routes the task; this preflight produces a compact Theory Context and then releases its working context. `research-grill` resolves consequential missing inputs. `analysis-feedback-loop`, `heat-transfer-analysis` and `dsc-analysis` execute quantitative or experimental analysis in the next stage. `claim-evidence-audit` checks actual final claims, and `handoff` records scoped state. Do not keep all these Skills resident together.
 
 Return task/scope, selected IDs and statuses, sources actually checked, G1-G5 applicability matrix, alternatives, missing parameters, limitations and a status of `applicable`, `conditional`, `unresolved` or `blocked`. Never infer `applicable` from keyword retrieval. Label hypothetical brainstorming and its test plan distinctly from a validated conclusion.
+
+## Stop conditions
+
+Do not present a consequential scientific conclusion as verified when the
+knowledge library, decisive source passages, applicable assumptions or required
+scope review are unavailable. Report the missing evidence and an `unresolved` or
+`blocked` status; hypothetical alternatives and their validation plans may still
+be discussed as such. Do not promote a candidate without the original source
+review and responsible human sign-off required by the knowledge admission rules.
+
+## Completion criterion
+
+The theory stage is complete when the requested actions and scope are classified,
+the applicable S0/S1/S2 route and its reason are recorded, and the results do not
+exceed the reviewed evidence. For S1, the context identity and current scope must
+be checked. For S2, document G1–G5, the sources actually inspected, limitations,
+alternatives and unresolved conditions. A candidate remains a candidate until its
+separate promotion requirements are met. Record missing coverage instead of
+claiming a completed scientific review; fixture success is not a field trial.

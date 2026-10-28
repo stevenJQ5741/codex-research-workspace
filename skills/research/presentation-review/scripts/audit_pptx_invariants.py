@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import math
+import posixpath
 import re
 import struct
 import sys
@@ -49,8 +50,8 @@ def rels(package: zipfile.ZipFile, part: str) -> dict[str, str]:
 
 def normalize_target(source_part: str, target: str) -> str:
     if target.startswith("/"):
-        return target.lstrip("/")
-    return str(PurePosixPath(source_part).parent.joinpath(target))
+        return posixpath.normpath(target).lstrip("/")
+    return posixpath.normpath(posixpath.join(posixpath.dirname(source_part), target))
 
 
 def slide_parts(package: zipfile.ZipFile) -> list[str]:
@@ -96,6 +97,7 @@ def geometry(node: ET.Element) -> dict[str, float] | None:
 
 def shape_records(package: zipfile.ZipFile, part: str) -> list[dict[str, Any]]:
     root = xml(package, part)
+    parents = {child: parent for parent in root.iter() for child in parent}
     relationships = {}
     relation_part = rels_part(part)
     if relation_part in package.namelist():
@@ -114,13 +116,33 @@ def shape_records(package: zipfile.ZipFile, part: str) -> list[dict[str, Any]]:
                 "text": text_of(node),
                 "geometry": geometry(node),
             }
+            if kind == "shape":
+                record["shape_image_fill"] = node.find(".//a:blip", NS) is not None
             if kind == "picture":
                 blip = node.find("p:blipFill/a:blip", NS)
                 rel_id = blip.attrib.get(f"{{{R}}}embed") if blip is not None else None
+                link_id = blip.attrib.get(f"{{{R}}}link") if blip is not None else None
                 target = relationships.get(rel_id, "") if rel_id else ""
                 record["media_part"] = (
                     normalize_target(part, target) if target else ""
                 )
+                record["linked"] = bool(link_id)
+                svg_node = next((child for child in blip.iter()
+                                 if child.tag.endswith("}svgBlip")), None) if blip is not None else None
+                record["svg_vector"] = svg_node is not None
+                svg_id = svg_node.attrib.get(f"{{{R}}}embed") if svg_node is not None else None
+                svg_target = relationships.get(svg_id, "") if svg_id else ""
+                record["svg_part"] = normalize_target(part, svg_target) if svg_target else ""
+                record["tiled"] = node.find("p:blipFill/a:tile", NS) is not None
+                crop = node.find("p:blipFill/a:srcRect", NS)
+                record["crop"] = dict(crop.attrib) if crop is not None else {}
+                parent = parents.get(node)
+                record["grouped"] = False
+                while parent is not None:
+                    if parent.tag == f"{{{PML}}}grpSp":
+                        record["grouped"] = True
+                        break
+                    parent = parents.get(parent)
             records.append(record)
     return records
 
@@ -173,9 +195,9 @@ def same_geometry(
 
 def image_dimensions(data: bytes, suffix: str) -> tuple[int, int] | None:
     suffix = suffix.lower()
-    if suffix == ".png" and data.startswith(b"\x89PNG\r\n\x1a\n"):
+    if suffix == ".png" and len(data) >= 24 and data.startswith(b"\x89PNG\r\n\x1a\n"):
         return struct.unpack(">II", data[16:24])
-    if suffix == ".gif" and data[:6] in (b"GIF87a", b"GIF89a"):
+    if suffix == ".gif" and len(data) >= 10 and data[:6] in (b"GIF87a", b"GIF89a"):
         return struct.unpack("<HH", data[6:10])
     if suffix == ".bmp" and data.startswith(b"BM") and len(data) >= 26:
         return struct.unpack("<ii", data[18:26])
@@ -229,6 +251,7 @@ def main() -> int:
                     "records": records,
                     "text": visible_text(records),
                     "office_math": len(root.findall(".//m:oMath", NS)),
+                    "background_image": root.find(".//p:bg//a:blip", NS) is not None,
                 }
             )
 
@@ -414,24 +437,67 @@ def main() -> int:
         image_spec = spec.get("image_quality", {})
         threshold = float(image_spec.get("warn_effective_ppi_below", 0))
         low_resolution = []
+        coverage = {"enabled": threshold > 0, "scope": "slide_picture_objects_and_detected_image_fills",
+                    "excluded": ["unresolved_layout_master_inheritance", "other_embedded_objects"],
+                    "assessed": [], "unassessed": [], "vector": []}
         if threshold > 0:
             for slide in slides:
+                if slide["background_image"]:
+                    coverage["unassessed"].append({"slide": slide["number"], "object": "slide_background", "media_part": "", "reason": "slide_background_image"})
                 for record in slide["records"]:
+                    if record["kind"] != "picture":
+                        if record.get("shape_image_fill"):
+                            coverage["unassessed"].append({"slide": slide["number"], "object": record["name"], "media_part": "", "reason": "shape_image_fill"})
+                        continue
                     media_part = record.get("media_part")
                     geom = record.get("geometry")
-                    if not media_part or not geom or media_part not in package.namelist():
+                    item = {"slide": slide["number"], "object": record["name"], "media_part": media_part}
+                    if record.get("linked"):
+                        coverage["unassessed"].append({**item, "reason": "linked_image"})
                         continue
-                    dimensions = image_dimensions(
-                        package.read(media_part), PurePosixPath(media_part).suffix
-                    )
-                    if not dimensions or geom["width"] <= 0 or geom["height"] <= 0:
+                    if not media_part or media_part not in package.namelist():
+                        coverage["unassessed"].append({**item, "reason": "missing_media"})
+                        continue
+                    suffix = PurePosixPath(media_part).suffix.lower()
+                    if record.get("svg_vector") and record.get("svg_part") not in package.namelist():
+                        coverage["unassessed"].append({**item, "vector_part": record.get("svg_part", ""), "reason": "missing_svg_vector_media"})
+                        continue
+                    if record.get("svg_vector") or suffix in {".svg", ".emf", ".wmf"}:
+                        coverage["vector"].append({**item, "vector_part": record.get("svg_part") or media_part, "reason": "vector_media"})
+                        continue
+                    if record.get("grouped"):
+                        coverage["unassessed"].append({**item, "reason": "group_transform"})
+                        continue
+                    if record.get("tiled"):
+                        coverage["unassessed"].append({**item, "reason": "tiled_fill"})
+                        continue
+                    if not geom or geom["width"] <= 0 or geom["height"] <= 0:
+                        coverage["unassessed"].append({**item, "reason": "missing_or_invalid_geometry"})
+                        continue
+                    try:
+                        dimensions = image_dimensions(package.read(media_part), suffix)
+                    except (ValueError, struct.error, IndexError):
+                        dimensions = None
+                    if not dimensions or dimensions[0] <= 0 or dimensions[1] <= 0:
+                        coverage["unassessed"].append({**item, "reason": "unsupported_or_invalid_raster"})
+                        continue
+                    try:
+                        crop = {side: int(record.get("crop", {}).get(side, 0)) for side in ("l", "t", "r", "b")}
+                    except (TypeError, ValueError):
+                        coverage["unassessed"].append({**item, "reason": "invalid_crop"})
+                        continue
+                    if (any(value < 0 or value > 100000 for value in crop.values()) or
+                            crop["l"] + crop["r"] >= 100000 or crop["t"] + crop["b"] >= 100000):
+                        coverage["unassessed"].append({**item, "reason": "invalid_or_extended_crop"})
                         continue
                     width_inches = geom["width"] * EMU_PER_POINT / EMU_PER_INCH
                     height_inches = geom["height"] * EMU_PER_POINT / EMU_PER_INCH
                     effective_ppi = min(
-                        dimensions[0] / width_inches,
-                        dimensions[1] / height_inches,
+                        dimensions[0] * (1 - (crop["l"] + crop["r"]) / 100000) / width_inches,
+                        dimensions[1] * (1 - (crop["t"] + crop["b"]) / 100000) / height_inches,
                     )
+                    coverage["assessed"].append({**item, "pixels": list(dimensions),
+                                                 "effective_ppi": round(effective_ppi, 1), "crop": crop})
                     if effective_ppi < threshold:
                         low_resolution.append(
                             {
@@ -442,11 +508,25 @@ def main() -> int:
                                 "effective_ppi": round(effective_ppi, 1),
                             }
                         )
+            for part in package.namelist():
+                if not re.fullmatch(r"ppt/(?:slideLayouts/slideLayout|slideMasters/slideMaster|charts/chart)\d+\.xml", part):
+                    continue
+                try:
+                    has_image = xml(package, part).find(".//a:blip", NS) is not None
+                except ET.ParseError:
+                    coverage["unassessed"].append({"slide": None, "object": part, "media_part": "", "reason": "invalid_non_slide_xml"})
+                    continue
+                if has_image:
+                    coverage["unassessed"].append({"slide": None, "object": part, "media_part": "", "reason": "layout_master_or_chart_image"})
             if low_resolution:
                 warnings.append(
                     f"Images below the declared {threshold:g} effective PPI warning threshold were found"
                 )
+            if coverage["unassessed"]:
+                warnings.append("Some picture objects could not be assessed for effective PPI")
         details["image_resolution_warnings"] = low_resolution
+        coverage["complete_within_scope"] = threshold > 0 and not coverage["unassessed"]
+        details["image_quality_coverage"] = coverage
 
         allowed_roi_types = {
             "school_logo",

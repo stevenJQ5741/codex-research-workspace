@@ -3,8 +3,9 @@
 ## Template-derived visual identity
 
 Derive colors, typography, institutional identity, page chrome, and spacing from
-the current user-approved deck or supplied template. Do not encode one project's
-palette, logo position, or page geometry as a universal rule.
+the current user-approved deck or supplied template. When the personal profile is
+appropriate and no different design is requested, use its reusable defaults. Do
+not treat an individual project's logo, geometry or content as universal.
 
 Across templates:
 
@@ -18,14 +19,16 @@ Preserve the active template unless redesign is authorized.
 
 ## Slide-title rule
 
-Prefer a message title over a topic label.
+Choose a clear subject label or a supported message title according to the slide's
+purpose. Setup, process and overview slides can use concise topic labels; a result
+slide may use a defensible takeaway. Do not invent a claim to fill the title.
 
 - Weak: `Results`
 - Better: `Automatic values are lower and show more variation`
 - Weak: `Method`
 - Better: `A fixed rule finds the three points`
 
-Use a topic title only when a visible takeaway supplies the message elsewhere on the slide.
+Preserve a clear existing title when it serves the audience and requested design.
 
 ## Evidence-form decision table
 

@@ -215,6 +215,20 @@ Declare only invariants that the task actually requires. Common checks include:
 - image effective-resolution warnings at the displayed size
 - warnings for exact duplicate text placed at nearly identical geometry
 
+When image quality is enabled, inspect `details.image_quality_coverage` as well as
+`image_resolution_warnings`. Effective raster PPI accounts for ordinary source
+cropping. Linked or missing media, grouped or tiled objects, malformed/unsupported
+rasters, unusual crop and detected slide background/shape image fills are listed as
+unassessed; vector objects are identified separately. Detected image fills in
+layout, master or chart XML are also reported as unassessed, even if the package
+part may not be visible. `complete_within_scope` is limited to the explicitly
+reported scope: it does not resolve all inheritance or arbitrary embedded objects.
+Raster headers do not constitute full image decoding or visual-content validation.
+The PPI threshold and unassessed
+objects produce warnings, not automatic failures; act on them before claiming an
+image-quality review is complete. Full-size inspection and provenance checks remain
+necessary. A disabled threshold does not constitute an image review.
+
 Repeated objects should be selected by semantic name, description, or stable
 task-specific selectors. Positional heuristics are a fallback and must be narrow
 enough to avoid selecting unrelated figures.

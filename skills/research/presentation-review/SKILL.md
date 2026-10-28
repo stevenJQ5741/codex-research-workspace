@@ -1,11 +1,42 @@
 ---
 name: presentation-review
-description: Review or revise academic presentations for narrative, evidence representation, audience fit, language, visual consistency, user-guided aesthetic calibration, notes, editability, and deterministic PPTX change control. Use for PowerPoint or exported Google Slides work before final release; delegate a declared final native PowerPoint and PDF pair to office-native-release.
+description: Create, review, or revise Jiang's academic, group-meeting, research assessment, or interview presentations with evidence-safe narrative and personal slide style; audit PPTX changes and hand declared final native releases to office-native-release.
 ---
 
 # Presentation Review
 
+## Personal research-presentation profile
+
+Apply the personal profile when Jiang asks for an academic, group-meeting, research
+assessment or interview presentation in his style, or the task context makes his
+personal style the appropriate default. An explicitly requested different template,
+audience, style, output format or change scope takes precedence. Existing approved
+decks retain their own visual baseline unless redesign is authorized.
+
+Read [personal-style-and-evidence.md](references/personal-style-and-evidence.md)
+for the shared visual and evidence practices. For a scientific or group-meeting
+report, also read [academic-report.md](references/academic-report.md); for a
+recruitment, talent-policy, research-plan or project-assessment interview, also
+read [review-interview.md](references/review-interview.md). For a mixed audience,
+select the dominant purpose and apply the other mode only where relevant; avoid
+loading conflicting defaults together. Explicit task instructions override both.
+
+When creating a new deck, establish the audience, time, evidence, requested output,
+style baseline, and slide-level narrative; use the available presentation authoring
+workflow for editing, rendering and delivery. Apply evidence and visual checks to
+the actual output; package-diff audits below apply only when a PPTX baseline exists.
+Do not treat a design outline or PNG as an editable PPTX or a final release. An
+explicit request for a complete PPTX authorizes creating that deliverable without
+extra stage approvals. If the user requested staged co-creation, honor those stages.
+New-deck authoring is complete when the requested output exists, evidence and visual
+checks appropriate to it are reported, and outstanding review is clearly marked.
+Stop on consequential unsupported claims or an unresolved authoritative source;
+record the gap rather than fabricate evidence.
+
 ## Procedure
+
+The following procedure applies to existing-deck review, revision, aesthetic
+calibration and release handoff. New-deck authoring follows the profile above.
 
 1. Load only the needed reference:
    - [aesthetic-collaboration.md](references/aesthetic-collaboration.md) for visual

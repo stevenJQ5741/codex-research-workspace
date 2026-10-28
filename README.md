@@ -82,6 +82,19 @@ The repository `skills/` tree is authoritative. Install managed copies with:
 powershell -ExecutionPolicy Bypass -File scripts/install_skills.ps1
 ```
 
+For repository-local discovery, preview and then create missing links or copies:
+
+```powershell
+python scripts/sync_project_skills.py
+python scripts/sync_project_skills.py --apply
+```
+
+Local `.agents/skills/` entries are generated and Git-ignored. The helper does
+not replace stale or unmanaged entries; inspect conflicts before resolving them.
+See `docs/rules/skill_discovery.md` for copied-directory and cross-machine limits.
+Global installed copies and project-local links with the same names can appear
+twice in a selector; both must be synchronized to the same canonical source.
+
 The installer refuses to replace an unmarked personal Skill. After Skill changes:
 
 1. validate every Skill and `agents/openai.yaml`
