@@ -74,17 +74,23 @@ default branches without a long-term pruning standard.
 
 ### Rolling-default publication
 
-1. Validate the complete intended repository state before publication.
-2. Push one provisional upload branch, obtain its first successful GitHub
-   `PushEvent`, and rename the branch to `agent/YYYYMMDD-HHmm-topic` using that
-   event time in JST. If the event stream is unavailable, use GitHub's server
-   `repository.pushedAt` captured immediately after one controlled push, and
-   record the pushed ref and object ID. This fallback is valid only when no
-   intervening push occurred; never substitute the local clock.
-3. Verify the renamed ref and commit before promoting it to GitHub default.
-4. Preserve the previous default and synchronize local `origin/HEAD`.
-5. Use pull requests only when review or comparison is requested.
-6. Publish the applicable half-year annotated snapshot tag when the maintenance
+1. Every explicitly authorized version publication must leave its published
+   commit on the GitHub default branch so a fresh clone gets that version.
+   Continue using the current default for ordinary sequential publications; a
+   new publication branch may be promoted when it contains the current default.
+   Reconcile unrelated or behind branches before promotion.
+2. Validate the intended state, commit it with explicit authorization, then use
+   `scripts/publish_default_branch.py` to preview and `--apply` to push, verify,
+   and, when needed, promote the current branch. Preserve the previous branch;
+   never force-push or delete it as part of publication.
+3. Verify the remote branch tip, GitHub default and local `origin/HEAD`.
+   An interrupted or failed promotion must be reported, never called complete.
+4. Direct pushes outside this workflow do not automatically promote a non-default
+   branch. Agents carrying out a publication must use this workflow.
+5. Keep candidate and incomplete validation status explicit; being the default
+   branch is a deployment choice, not scientific or release certification.
+6. Use pull requests only when review or comparison is requested.
+7. Publish the applicable half-year annotated snapshot tag when the maintenance
    cycle is approved for GitHub publication.
 
 ## Consequences

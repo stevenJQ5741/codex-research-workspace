@@ -14,8 +14,8 @@ repository compact, non-duplicative, and stable across computers.
   passed a live Codex research-task trial.
 - Skill responsibilities were consolidated in August 2026 without adding a
   parallel version tree.
-- Rolling default branches remain active; half-year branch maintenance is
-  governed by ADR 0004.
+- Authorized version publications use the default-branch publication workflow;
+  half-year branch maintenance is governed by ADR 0004.
 - Native Word and PowerPoint remain authoritative only for declared final Office
   releases; LibreOffice is diagnostic.
 - Native Office export is hardened around PowerShell-supervised
@@ -32,9 +32,9 @@ repository compact, non-duplicative, and stable across computers.
   unknown activity as protected and cannot delete remote branches.
 - The native release path passed repeat-render validation on one real 8-page
   DOCX and one real 23-slide PPTX without modifying either source.
-- The validated repository is published on the rolling default branch
-  `agent/20260818-2121-presentation-qa-invariants`; the previous default
-  `agent/20260805-1634-repository-stability` remains preserved and
+- The candidate workspace is published on the default branch
+  `agent/upload-theory-grounding-candidate-20261014`; the previous default
+  `agent/20260818-2121-presentation-qa-invariants` remains preserved and
   `snapshot/2026-H1` is published as an annotated checkpoint.
 
 ## Immediate tasks

@@ -105,8 +105,21 @@ The installer refuses to replace an unmarked personal Skill. After Skill changes
 
 ## Branch maintenance
 
-Validated uploads continue to use rolling timestamped default branches. Branch
-retention, half-year snapshot tags, deletion eligibility, and post-delete checks
+After explicit authorization, commit the validated intended changes and publish
+the current branch as the GitHub default:
+
+```powershell
+python scripts/publish_default_branch.py
+python scripts/publish_default_branch.py --apply
+```
+
+The first command is read-only; the second pushes without force and verifies the
+remote default. It requires Git, authenticated GitHub CLI with repository admin
+access, and Python 3.9+. Direct pushes to other branches do not trigger this
+workflow. On Windows, the helper can use an enabled, simple loopback system proxy
+for its own process; it does not install or change proxy settings.
+
+Branch retention, half-year snapshot tags, deletion eligibility, and post-delete checks
 are governed by
 `docs/adr/0004-maintenance-boundaries-and-branch-retention.md`. Every pruning
 cycle begins with:
